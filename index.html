@@ -3,148 +3,637 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta name="robots" content="index,follow">
-<meta name="description" content="Bộ sưu tập hình ảnh có thông báo bản quyền.">
+<meta name="description" content="Copyright Gallery — Bộ sưu tập hình ảnh được bảo vệ bản quyền.">
+
 <title>Copyright Gallery — All Rights Reserved</title>
+
 <style>
 :root {
-  --bg:#0b0d10; --panel:#14171c; --text:#f4f5f7; --muted:#a9afb8; --line:#292e36;
+  --bg: #0b0d10;
+  --panel: #14171c;
+  --panel-hover: #191d23;
+  --text: #f4f5f7;
+  --muted: #a9afb8;
+  --line: #292e36;
+  --accent: #c8cdd5;
 }
-* { box-sizing:border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin:0; background:var(--bg); color:var(--text);
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
+
+/* =========================
+   HEADER
+========================= */
+
 header {
-  padding:64px 22px 42px; text-align:center;
-  border-bottom:1px solid var(--line);
-  background:linear-gradient(180deg,#151922 0%,#0b0d10 100%);
+  padding: 64px 22px 42px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(
+      180deg,
+      #151922 0%,
+      #0b0d10 100%
+    );
 }
+
 .badge {
-  display:inline-block; padding:7px 12px; border:1px solid #3a414c;
-  border-radius:999px; font-size:12px; letter-spacing:.12em;
-  color:#c8cdd5; text-transform:uppercase;
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px solid #3a414c;
+  border-radius: 999px;
+
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: var(--accent);
+  text-transform: uppercase;
+
+  background: rgba(255,255,255,.02);
 }
-h1 { margin:18px 0 10px; font-size:clamp(34px,6vw,64px); line-height:1; }
-.lead { max-width:700px; margin:0 auto; color:var(--muted); line-height:1.7; }
-main { width:min(1200px,92%); margin:42px auto 80px; }
+
+h1 {
+  margin: 18px 0 10px;
+
+  font-size: clamp(34px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  max-width: 760px;
+  margin: 0 auto;
+
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: min(1200px, 92%);
+  margin: 42px auto 80px;
+}
+
+/* =========================
+   IMAGE GRID
+========================= */
+
 .grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 24px;
 }
+
+/* =========================
+   CARD
+========================= */
+
 .card {
-  overflow:hidden; background:var(--panel); border:1px solid var(--line);
-  border-radius:18px; box-shadow:0 14px 40px rgba(0,0,0,.22);
+  overflow: hidden;
+
+  background: var(--panel);
+
+  border: 1px solid var(--line);
+  border-radius: 18px;
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.22);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
 }
-.image-wrap { position:relative; background:#08090b; overflow:hidden; }
+
+.card:hover {
+  transform: translateY(-3px);
+
+  background: var(--panel-hover);
+
+  border-color: #3a414c;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.image-wrap {
+  position: relative;
+
+  background: #08090b;
+
+  overflow: hidden;
+}
+
 .image-wrap img {
-  display:block; width:100%; height:auto; user-select:none;
-  -webkit-user-drag:none;
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  pointer-events: none;
+
+  transition: transform .25s ease;
 }
+
+.card:hover .image-wrap img {
+  transform: scale(1.015);
+}
+
+/* =========================
+   WATERMARK
+========================= */
+
 .watermark {
-  position:absolute; left:12px; bottom:12px; padding:6px 9px;
-  font-size:10px; letter-spacing:.09em; color:rgba(255,255,255,.8);
-  background:rgba(0,0,0,.38); border:1px solid rgba(255,255,255,.18);
-  border-radius:6px; pointer-events:none;
+  position: absolute;
+
+  left: 12px;
+  bottom: 12px;
+
+  padding: 6px 9px;
+
+  font-size: 10px;
+  letter-spacing: .09em;
+
+  color: rgba(255,255,255,.85);
+
+  background: rgba(0,0,0,.48);
+
+  border: 1px solid rgba(255,255,255,.18);
+
+  border-radius: 6px;
+
+  pointer-events: none;
+
+  user-select: none;
 }
-.caption { padding:16px 17px 18px; display:flex; justify-content:space-between; gap:12px; }
-.caption h2 { margin:0; font-size:17px; }
-.caption span { color:var(--muted); font-size:13px; }
+
+/* =========================
+   CAPTION
+========================= */
+
+.caption {
+  padding: 16px 17px 18px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+.caption h2 {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.caption span {
+  flex-shrink: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+/* =========================
+   COPYRIGHT NOTICE
+========================= */
+
 .notice {
-  margin:34px 0 0; padding:22px; border:1px solid var(--line);
-  border-radius:16px; color:#c8cdd5; line-height:1.7;
+  margin: 34px 0 0;
+
+  padding: 22px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 16px;
+
+  color: #c8cdd5;
+
+  line-height: 1.7;
+
+  background: rgba(255,255,255,.01);
 }
+
+.notice strong {
+  color: var(--text);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
-  border-top:1px solid var(--line); padding:28px 20px; text-align:center;
-  color:var(--muted); font-size:13px;
+  border-top: 1px solid var(--line);
+
+  padding: 28px 20px;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 13px;
 }
-@media (max-width:600px) {
-  header { padding-top:44px; }
-  main { margin-top:28px; }
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  header {
+    padding:
+      44px
+      18px
+      34px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  .lead {
+    font-size: 14px;
+  }
+
+  main {
+    width: 92%;
+
+    margin-top: 28px;
+    margin-bottom: 50px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .caption {
+    padding:
+      14px
+      15px
+      16px;
+  }
+
+  .caption h2 {
+    font-size: 16px;
+  }
+
+  .notice {
+    margin-top: 26px;
+
+    padding: 18px;
+
+    font-size: 14px;
+  }
 }
 </style>
 </head>
+
 <body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-  <span class="badge">Copyright Protected</span>
-  <h1>My Image Gallery</h1>
-  <p class="lead">Bộ sưu tập hình ảnh được công bố trực tuyến. Hình ảnh thuộc quyền của chủ sở hữu và không được sao chép, tái sử dụng hoặc phân phối khi chưa được cho phép.</p>
+
+  <span class="badge">
+    Copyright Protected
+  </span>
+
+  <h1>
+    My Image Gallery
+  </h1>
+
+  <p class="lead">
+    Bộ sưu tập hình ảnh được công bố trực tuyến.
+    Hình ảnh thuộc quyền của chủ sở hữu và không được
+    sao chép, tái sử dụng hoặc phân phối khi chưa được cho phép.
+  </p>
+
 </header>
 
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
 <main>
+
   <section class="grid">
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-1.jpg" alt="Hoa hồng" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
+
+
+    <!-- =====================
+         IMAGE 01
+    ====================== -->
+
+    <article class="card">
+
+      <div class="image-wrap">
+
+        <img
+          src="media_1.jpg"
+          alt="Hoa hồng"
+          loading="lazy"
+          draggable="false"
+        >
+
+        <div class="watermark">
+          © COPYRIGHT • ALL RIGHTS RESERVED
         </div>
-        <div class="caption">
-          <h2>Hoa hồng</h2>
-          <span>Ảnh 01</span>
+
+      </div>
+
+      <div class="caption">
+
+        <h2>
+          Hoa hồng
+        </h2>
+
+        <span>
+          Ảnh 01
+        </span>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================
+         IMAGE 02
+    ====================== -->
+
+    <article class="card">
+
+      <div class="image-wrap">
+
+        <img
+          src="media_2.jpg"
+          alt="Khoảnh khắc nắm tay"
+          loading="lazy"
+          draggable="false"
+        >
+
+        <div class="watermark">
+          © COPYRIGHT • ALL RIGHTS RESERVED
         </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-2.jpg" alt="Khoảnh khắc nắm tay" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
+
+      </div>
+
+      <div class="caption">
+
+        <h2>
+          Khoảnh khắc nắm tay
+        </h2>
+
+        <span>
+          Ảnh 02
+        </span>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================
+         IMAGE 03
+    ====================== -->
+
+    <article class="card">
+
+      <div class="image-wrap">
+
+        <img
+          src="media_3.jpg"
+          alt="Khoảnh khắc vui đùa"
+          loading="lazy"
+          draggable="false"
+        >
+
+        <div class="watermark">
+          © COPYRIGHT • ALL RIGHTS RESERVED
         </div>
-        <div class="caption">
-          <h2>Khoảnh khắc nắm tay</h2>
-          <span>Ảnh 02</span>
+
+      </div>
+
+      <div class="caption">
+
+        <h2>
+          Khoảnh khắc vui đùa
+        </h2>
+
+        <span>
+          Ảnh 03
+        </span>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================
+         IMAGE 04
+    ====================== -->
+
+    <article class="card">
+
+      <div class="image-wrap">
+
+        <img
+          src="media_4.jpg"
+          alt="Lời nhắc về cách nói năng"
+          loading="lazy"
+          draggable="false"
+        >
+
+        <div class="watermark">
+          © COPYRIGHT • ALL RIGHTS RESERVED
         </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-3.jpg" alt="Khoảnh khắc vui đùa" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
+
+      </div>
+
+      <div class="caption">
+
+        <h2>
+          Lời nhắc về cách nói năng
+        </h2>
+
+        <span>
+          Ảnh 04
+        </span>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================
+         IMAGE 05
+    ====================== -->
+
+    <article class="card">
+
+      <div class="image-wrap">
+
+        <img
+          src="media_5.jpg"
+          alt="Khoảnh khắc gia đình"
+          loading="lazy"
+          draggable="false"
+        >
+
+        <div class="watermark">
+          © COPYRIGHT • ALL RIGHTS RESERVED
         </div>
-        <div class="caption">
-          <h2>Khoảnh khắc vui đùa</h2>
-          <span>Ảnh 03</span>
-        </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-4.jpg" alt="Lời nhắc về cách nói năng" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Lời nhắc về cách nói năng</h2>
-          <span>Ảnh 04</span>
-        </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-5.jpg" alt="Khoảnh khắc gia đình" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Khoảnh khắc gia đình</h2>
-          <span>Ảnh 05</span>
-        </div>
-      </article>
-    
+
+      </div>
+
+      <div class="caption">
+
+        <h2>
+          Khoảnh khắc gia đình
+        </h2>
+
+        <span>
+          Ảnh 05
+        </span>
+
+      </div>
+
+    </article>
+
+
   </section>
+
+
+  <!-- =========================
+       COPYRIGHT NOTICE
+  ========================== -->
 
   <section class="notice">
-    <strong>© 2026 — All Rights Reserved.</strong><br>
-    Mọi hình ảnh trên trang này được đăng với thông báo bản quyền. Việc vô hiệu hóa chuột phải và kéo ảnh chỉ là biện pháp hạn chế cơ bản; không có trang web công khai nào có thể ngăn tuyệt đối việc chụp màn hình hoặc sao chép hình ảnh. Để bảo vệ tốt hơn, nên kết hợp watermark, metadata bản quyền và cơ chế phát hiện/takedown khi cần.
+
+    <strong>
+      © 2026 — All Rights Reserved.
+    </strong>
+
+    <br>
+
+    Mọi hình ảnh trên trang này được đăng với
+    thông báo bản quyền.
+
+    Việc vô hiệu hóa chuột phải và kéo ảnh chỉ là
+    biện pháp hạn chế cơ bản; không có trang web
+    công khai nào có thể ngăn tuyệt đối việc chụp
+    màn hình hoặc sao chép hình ảnh.
+
+    Để bảo vệ tốt hơn, nên kết hợp watermark,
+    metadata bản quyền và cơ chế phát hiện/takedown
+    khi cần.
+
   </section>
+
 </main>
 
-<footer>© 2026 Copyright Gallery · All rights reserved</footer>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  © 2026 Copyright Gallery · All rights reserved
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('dragstart', e => e.preventDefault());
-document.addEventListener('selectstart', e => {
-  if (e.target.tagName === 'IMG') e.preventDefault();
-});
+
+/*
+ * Chặn menu chuột phải
+ */
+
+document.addEventListener(
+  "contextmenu",
+  function(event) {
+    event.preventDefault();
+  }
+);
+
+
+/*
+ * Chặn kéo thả
+ */
+
+document.addEventListener(
+  "dragstart",
+  function(event) {
+    event.preventDefault();
+  }
+);
+
+
+/*
+ * Chặn chọn hình ảnh
+ */
+
+document.addEventListener(
+  "selectstart",
+  function(event) {
+
+    if (
+      event.target &&
+      event.target.tagName === "IMG"
+    ) {
+
+      event.preventDefault();
+
+    }
+
+  }
+);
+
 </script>
+
 </body>
 </html>
