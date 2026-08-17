@@ -1,150 +1,669 @@
 <!doctype html>
 <html lang="vi">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta name="robots" content="index,follow">
-<meta name="description" content="Bộ sưu tập hình ảnh có thông báo bản quyền.">
+<meta name="description" content="Copyright protected image gallery.">
+
 <title>Copyright Gallery — All Rights Reserved</title>
+
 <style>
-:root {
-  --bg:#0b0d10; --panel:#14171c; --text:#f4f5f7; --muted:#a9afb8; --line:#292e36;
+
+:root{
+--bg:#0b0d10;
+--panel:#14171c;
+--text:#f4f5f7;
+--muted:#a9afb8;
+--line:#292e36;
 }
-* { box-sizing:border-box; }
-body {
-  margin:0; background:var(--bg); color:var(--text);
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+
+*{
+box-sizing:border-box;
 }
-header {
-  padding:64px 22px 42px; text-align:center;
-  border-bottom:1px solid var(--line);
-  background:linear-gradient(180deg,#151922 0%,#0b0d10 100%);
+
+
+body{
+
+margin:0;
+background:var(--bg);
+color:var(--text);
+
+font-family:
+Inter,
+system-ui,
+-apple-system,
+"Segoe UI",
+sans-serif;
+
 }
-.badge {
-  display:inline-block; padding:7px 12px; border:1px solid #3a414c;
-  border-radius:999px; font-size:12px; letter-spacing:.12em;
-  color:#c8cdd5; text-transform:uppercase;
+
+
+/* HEADER */
+
+header{
+
+padding:70px 20px 45px;
+
+text-align:center;
+
+border-bottom:1px solid var(--line);
+
+background:
+linear-gradient(
+180deg,
+#151922,
+#0b0d10
+);
+
 }
-h1 { margin:18px 0 10px; font-size:clamp(34px,6vw,64px); line-height:1; }
-.lead { max-width:700px; margin:0 auto; color:var(--muted); line-height:1.7; }
-main { width:min(1200px,92%); margin:42px auto 80px; }
-.grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
+
+
+.badge{
+
+display:inline-block;
+
+padding:8px 14px;
+
+border:1px solid #3a414c;
+
+border-radius:999px;
+
+font-size:12px;
+
+letter-spacing:.15em;
+
+color:#c8cdd5;
+
+text-transform:uppercase;
+
 }
-.card {
-  overflow:hidden; background:var(--panel); border:1px solid var(--line);
-  border-radius:18px; box-shadow:0 14px 40px rgba(0,0,0,.22);
+
+
+h1{
+
+font-size:clamp(38px,7vw,70px);
+
+margin:20px 0 15px;
+
 }
-.image-wrap { position:relative; background:#08090b; overflow:hidden; }
-.image-wrap img {
-  display:block; width:100%; height:auto; user-select:none;
-  -webkit-user-drag:none;
+
+
+.lead{
+
+max-width:750px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:var(--muted);
+
 }
-.watermark {
-  position:absolute; left:12px; bottom:12px; padding:6px 9px;
-  font-size:10px; letter-spacing:.09em; color:rgba(255,255,255,.8);
-  background:rgba(0,0,0,.38); border:1px solid rgba(255,255,255,.18);
-  border-radius:6px; pointer-events:none;
+
+
+/* GALLERY */
+
+
+main{
+
+width:min(1400px,94%);
+
+margin:50px auto 90px;
+
 }
-.caption { padding:16px 17px 18px; display:flex; justify-content:space-between; gap:12px; }
-.caption h2 { margin:0; font-size:17px; }
-.caption span { color:var(--muted); font-size:13px; }
-.notice {
-  margin:34px 0 0; padding:22px; border:1px solid var(--line);
-  border-radius:16px; color:#c8cdd5; line-height:1.7;
+
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(420px,1fr));
+
+gap:35px;
+
 }
-footer {
-  border-top:1px solid var(--line); padding:28px 20px; text-align:center;
-  color:var(--muted); font-size:13px;
+
+
+
+.card{
+
+background:var(--panel);
+
+border:1px solid var(--line);
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.3);
+
+transition:.3s;
+
 }
-@media (max-width:600px) {
-  header { padding-top:44px; }
-  main { margin-top:28px; }
+
+
+
+.card:hover{
+
+transform:scale(1.03);
+
 }
+
+
+
+/* IMAGE */
+
+
+.image-wrap{
+
+position:relative;
+
+background:#000;
+
+overflow:hidden;
+
+cursor:pointer;
+
+}
+
+
+
+.image-wrap img{
+
+display:block;
+
+width:100%;
+
+height:600px;
+
+object-fit:contain;
+
+background:#000;
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+
+
+/* WATERMARK */
+
+
+.watermark{
+
+position:absolute;
+
+bottom:15px;
+
+left:15px;
+
+padding:7px 12px;
+
+font-size:11px;
+
+letter-spacing:.1em;
+
+color:white;
+
+background:
+rgba(0,0,0,.45);
+
+border:
+
+1px solid rgba(255,255,255,.3);
+
+border-radius:8px;
+
+pointer-events:none;
+
+}
+
+
+
+/* TITLE */
+
+
+.caption{
+
+padding:18px;
+
+display:flex;
+
+justify-content:space-between;
+
+gap:15px;
+
+}
+
+
+
+.caption h2{
+
+margin:0;
+
+font-size:20px;
+
+}
+
+
+
+.caption span{
+
+color:var(--muted);
+
+}
+
+
+/* NOTICE */
+
+
+.notice{
+
+margin-top:45px;
+
+padding:25px;
+
+border:1px solid var(--line);
+
+border-radius:18px;
+
+line-height:1.8;
+
+color:#c8cdd5;
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+border-top:1px solid var(--line);
+
+color:var(--muted);
+
+}
+
+
+/* FULL SCREEN IMAGE */
+
+
+#viewer{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,.96);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+
+
+#viewer img{
+
+max-width:95%;
+
+max-height:95%;
+
+object-fit:contain;
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:700px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.image-wrap img{
+
+height:400px;
+
+}
+
+
+}
+
 </style>
+
+
 </head>
+
+
+
 <body>
+
+
+
 <header>
-  <span class="badge">Copyright Protected</span>
-  <h1>My Image Gallery</h1>
-  <p class="lead">Bộ sưu tập hình ảnh được công bố trực tuyến. Hình ảnh thuộc quyền của chủ sở hữu và không được sao chép, tái sử dụng hoặc phân phối khi chưa được cho phép.</p>
+
+<span class="badge">
+Copyright Protected
+</span>
+
+
+<h1>
+My Image Gallery
+</h1>
+
+
+<p class="lead">
+
+Bộ sưu tập hình ảnh được công bố trực tuyến.
+Hình ảnh thuộc quyền của chủ sở hữu và không được sao chép,
+tái sử dụng hoặc phân phối khi chưa được cho phép.
+
+</p>
+
+
 </header>
 
-<main>
-  <section class="grid">
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-1.jpg" alt="Hoa hồng" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Hoa hồng</h2>
-          <span>Ảnh 01</span>
-        </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-2.jpg" alt="Khoảnh khắc nắm tay" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Khoảnh khắc nắm tay</h2>
-          <span>Ảnh 02</span>
-        </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-3.jpg" alt="Khoảnh khắc vui đùa" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Khoảnh khắc vui đùa</h2>
-          <span>Ảnh 03</span>
-        </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-4.jpg" alt="Lời nhắc về cách nói năng" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Lời nhắc về cách nói năng</h2>
-          <span>Ảnh 04</span>
-        </div>
-      </article>
-    
-      <article class="card">
-        <div class="image-wrap">
-          <img src="images/image-5.jpg" alt="Khoảnh khắc gia đình" loading="lazy" draggable="false">
-          <div class="watermark">© COPYRIGHT • ALL RIGHTS RESERVED</div>
-        </div>
-        <div class="caption">
-          <h2>Khoảnh khắc gia đình</h2>
-          <span>Ảnh 05</span>
-        </div>
-      </article>
-    
-  </section>
 
-  <section class="notice">
-    <strong>© 2026 — All Rights Reserved.</strong><br>
-    Mọi hình ảnh trên trang này được đăng với thông báo bản quyền. Việc vô hiệu hóa chuột phải và kéo ảnh chỉ là biện pháp hạn chế cơ bản; không có trang web công khai nào có thể ngăn tuyệt đối việc chụp màn hình hoặc sao chép hình ảnh. Để bảo vệ tốt hơn, nên kết hợp watermark, metadata bản quyền và cơ chế phát hiện/takedown khi cần.
-  </section>
+
+<main>
+
+
+
+<section class="grid">
+
+
+
+<!-- ẢNH 1 -->
+
+<article class="card">
+
+<div class="image-wrap">
+
+<img src="images/image-1.jpg"
+alt="Hoa hồng"
+draggable="false">
+
+<div class="watermark">
+© COPYRIGHT • ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+
+<div class="caption">
+
+<h2>Hoa hồng</h2>
+
+<span>Ảnh 01</span>
+
+</div>
+
+</article>
+
+
+
+
+<!-- ẢNH 2 -->
+
+
+<article class="card">
+
+<div class="image-wrap">
+
+<img src="images/image-2.jpg"
+alt="Khoảnh khắc nắm tay"
+draggable="false">
+
+<div class="watermark">
+© COPYRIGHT • ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+
+<div class="caption">
+
+<h2>Khoảnh khắc nắm tay</h2>
+
+<span>Ảnh 02</span>
+
+</div>
+
+</article>
+
+
+
+
+<!-- ẢNH 3 -->
+
+
+<article class="card">
+
+<div class="image-wrap">
+
+<img src="images/image-3.jpg"
+alt="Khoảnh khắc vui đùa"
+draggable="false">
+
+<div class="watermark">
+© COPYRIGHT • ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+
+<div class="caption">
+
+<h2>Khoảnh khắc vui đùa</h2>
+
+<span>Ảnh 03</span>
+
+</div>
+
+</article>
+
+
+
+
+<!-- ẢNH 4 -->
+
+
+<article class="card">
+
+<div class="image-wrap">
+
+<img src="images/image-4.jpg"
+alt="Lời nhắc"
+draggable="false">
+
+<div class="watermark">
+© COPYRIGHT • ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+
+<div class="caption">
+
+<h2>Lời nhắc về cách nói năng</h2>
+
+<span>Ảnh 04</span>
+
+</div>
+
+</article>
+
+
+
+
+<!-- ẢNH 5 -->
+
+
+<article class="card">
+
+<div class="image-wrap">
+
+<img src="images/image-5.jpg"
+alt="Gia đình"
+draggable="false">
+
+<div class="watermark">
+© COPYRIGHT • ALL RIGHTS RESERVED
+</div>
+
+</div>
+
+
+<div class="caption">
+
+<h2>Khoảnh khắc gia đình</h2>
+
+<span>Ảnh 05</span>
+
+</div>
+
+</article>
+
+
+
+</section>
+
+
+
+
+
+<section class="notice">
+
+<strong>
+© 2026 — All Rights Reserved.
+</strong>
+
+<br><br>
+
+Mọi hình ảnh trên trang này được đăng với thông báo bản quyền.
+Hình ảnh không được sao chép, tái sử dụng hoặc phân phối khi chưa có sự cho phép.
+Trang sử dụng watermark, thông báo copyright và các biện pháp kỹ thuật nhằm hạn chế việc sử dụng trái phép.
+
+
+</section>
+
+
+
 </main>
 
-<footer>© 2026 Copyright Gallery · All rights reserved</footer>
+
+
+<footer>
+
+© 2026 Copyright Gallery · All rights reserved
+
+</footer>
+
+
+
+
+
+<!-- XEM ẢNH TOÀN MÀN HÌNH -->
+
+
+<div id="viewer">
+
+<img id="viewer-img">
+
+</div>
+
+
+
 
 <script>
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('dragstart', e => e.preventDefault());
-document.addEventListener('selectstart', e => {
-  if (e.target.tagName === 'IMG') e.preventDefault();
+
+
+// mở ảnh lớn
+
+const viewer =
+document.getElementById("viewer");
+
+
+const viewerImg =
+document.getElementById("viewer-img");
+
+
+
+document
+.querySelectorAll(".image-wrap img")
+.forEach(img=>{
+
+
+img.onclick=function(){
+
+viewerImg.src=this.src;
+
+viewer.style.display="flex";
+
+};
+
+
 });
+
+
+
+// đóng ảnh
+
+viewer.onclick=function(){
+
+viewer.style.display="none";
+
+};
+
+
+
+
+// chống tải cơ bản
+
+
+document.addEventListener(
+"contextmenu",
+e=>e.preventDefault()
+);
+
+
+document.addEventListener(
+"dragstart",
+e=>e.preventDefault()
+);
+
+
 </script>
+
+
+
 </body>
 </html>
