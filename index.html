@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="vi">
+
 <head>
 
 <meta charset="utf-8">
@@ -7,14 +8,17 @@
 
 <title>Copyright Gallery — All Rights Reserved</title>
 
+
 <style>
 
 :root{
+
 --bg:#080a0d;
---panel:#12151a;
+--panel:#14171c;
 --text:#ffffff;
 --muted:#aeb4bd;
---line:#292e36;
+--line:#303640;
+
 }
 
 
@@ -33,10 +37,12 @@ color:var(--text);
 
 font-family:
 Inter,
+system-ui,
 Arial,
 sans-serif;
 
 }
+
 
 
 /* HEADER */
@@ -59,15 +65,16 @@ linear-gradient(
 }
 
 
+
 .badge{
 
 display:inline-block;
 
-padding:8px 16px;
+padding:8px 15px;
 
 border:1px solid #555;
 
-border-radius:50px;
+border-radius:30px;
 
 font-size:12px;
 
@@ -79,11 +86,12 @@ letter-spacing:2px;
 
 h1{
 
-font-size:70px;
+font-size:60px;
 
 margin:25px 0 15px;
 
 }
+
 
 
 .lead{
@@ -92,22 +100,23 @@ max-width:850px;
 
 margin:auto;
 
+color:var(--muted);
+
 font-size:18px;
 
 line-height:1.8;
-
-color:var(--muted);
 
 }
 
 
 
-/* GALLERY */
+
+/* CONTENT */
 
 
 main{
 
-width:95%;
+width:92%;
 
 max-width:1400px;
 
@@ -115,6 +124,10 @@ margin:60px auto;
 
 }
 
+
+
+
+/* mỗi ảnh một dòng */
 
 
 .grid{
@@ -129,12 +142,9 @@ gap:70px;
 
 
 
-/* CARD */
 
 
 .card{
-
-width:100%;
 
 background:var(--panel);
 
@@ -145,13 +155,14 @@ border-radius:25px;
 overflow:hidden;
 
 box-shadow:
-0 20px 50px rgba(0,0,0,.4);
+0 20px 50px rgba(0,0,0,.35);
 
 }
 
 
 
-/* IMAGE */
+
+/* ẢNH */
 
 
 .image-wrap{
@@ -162,71 +173,102 @@ width:100%;
 
 background:#000;
 
+overflow:hidden;
+
 }
+
 
 
 .image-wrap img{
 
-display:block;
 
 width:100%;
 
+
 height:auto;
 
-max-height:none;
+
+display:block;
+
 
 object-fit:contain;
 
-cursor:pointer;
 
-user-select:none;
+transition:
+transform .5s ease;
 
--webkit-user-drag:none;
 
 }
 
 
 
-/* WATERMARK */
+
+/* zoom */
+
+
+.image-wrap:hover img{
+
+transform:scale(1.05);
+
+}
+
+
+
+/* watermark */
 
 
 .watermark{
 
+
 position:absolute;
 
-bottom:20px;
 
-left:20px;
+left:25px;
 
-padding:8px 14px;
+
+bottom:25px;
+
 
 background:
-rgba(0,0,0,.55);
+rgba(0,0,0,.6);
 
-border:1px solid rgba(255,255,255,.3);
+
+padding:10px 15px;
+
 
 border-radius:8px;
 
+
 font-size:12px;
 
+
 letter-spacing:1px;
+
+
+border:1px solid rgba(255,255,255,.3);
+
 
 }
 
 
 
-/* CAPTION */
+/* TITLE */
 
 
 .caption{
 
-padding:25px 30px;
+
+padding:25px;
+
 
 display:flex;
 
+
 justify-content:space-between;
 
+
 align-items:center;
+
 
 }
 
@@ -234,9 +276,12 @@ align-items:center;
 
 .caption h2{
 
-font-size:32px;
+
+font-size:30px;
+
 
 margin:0;
+
 
 }
 
@@ -244,96 +289,65 @@ margin:0;
 
 .caption span{
 
-font-size:18px;
 
 color:var(--muted);
+
+
+font-size:18px;
+
 
 }
 
 
 
-/* NOTICE */
 
 
 .notice{
 
-margin-top:60px;
+
+margin-top:70px;
+
 
 padding:30px;
 
+
 border:1px solid var(--line);
+
 
 border-radius:20px;
 
-font-size:17px;
 
 line-height:1.8;
 
+
 color:#ddd;
+
 
 }
 
 
 
-/* FOOTER */
 
 
 footer{
 
-padding:35px;
-
-text-align:center;
 
 border-top:1px solid var(--line);
 
+
+padding:30px;
+
+
+text-align:center;
+
+
 color:var(--muted);
 
-}
-
-
-
-/* FULL SCREEN */
-
-
-#viewer{
-
-display:none;
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-right:0;
-
-bottom:0;
-
-background:
-rgba(0,0,0,.96);
-
-justify-content:center;
-
-align-items:center;
-
-z-index:9999;
-
-}
-
-
-#viewer img{
-
-max-width:95%;
-
-max-height:95%;
-
-object-fit:contain;
 
 }
 
 
 
-/* MOBILE */
 
 
 @media(max-width:700px){
@@ -341,7 +355,7 @@ object-fit:contain;
 
 h1{
 
-font-size:42px;
+font-size:38px;
 
 }
 
@@ -357,7 +371,9 @@ font-size:22px;
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -367,14 +383,19 @@ font-size:22px;
 <header>
 
 
-<span class="badge">
+<div class="badge">
+
 COPYRIGHT PROTECTED
-</span>
+
+</div>
 
 
 <h1>
+
 My Image Gallery
+
 </h1>
+
 
 
 <p class="lead">
@@ -390,39 +411,54 @@ tái sử dụng hoặc phân phối khi chưa được cho phép.
 
 
 
+
+
 <main>
+
 
 
 <section class="grid">
 
 
 
-<article class="card">
 
+
+<!-- IMAGE 1 -->
+
+<article class="card">
 
 <div class="image-wrap">
 
-
-<img src="images/image-1.jpg"
+<img src="media_1.jpg"
 alt="Hoa hồng">
 
 
 <div class="watermark">
-© COPYRIGHT • ALL RIGHTS RESERVED
-</div>
 
+© COPYRIGHT • ALL RIGHTS RESERVED
+
+</div>
 
 </div>
 
 
 <div class="caption">
 
-<h2>Hoa hồng</h2>
+<h2>
 
-<span>Ảnh 01</span>
+Hoa hồng
+
+</h2>
+
+
+<span>
+
+Ảnh 01
+
+</span>
+
 
 </div>
-
 
 </article>
 
@@ -430,29 +466,49 @@ alt="Hoa hồng">
 
 
 
-<article class="card">
 
+
+
+<!-- IMAGE 2 -->
+
+
+<article class="card">
 
 <div class="image-wrap">
 
 
-<img src="images/image-2.jpg"
+<img src="media_2.jpg"
 alt="Khoảnh khắc nắm tay">
 
 
+
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Khoảnh khắc nắm tay</h2>
 
-<span>Ảnh 02</span>
+<h2>
+
+Khoảnh khắc nắm tay
+
+</h2>
+
+
+<span>
+
+Ảnh 02
+
+</span>
+
 
 </div>
 
@@ -463,29 +519,49 @@ alt="Khoảnh khắc nắm tay">
 
 
 
-<article class="card">
 
+
+
+
+<!-- IMAGE 3 -->
+
+
+<article class="card">
 
 <div class="image-wrap">
 
 
-<img src="images/image-3.jpg"
+<img src="media_3.jpg"
 alt="Khoảnh khắc vui đùa">
 
 
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Khoảnh khắc vui đùa</h2>
 
-<span>Ảnh 03</span>
+<h2>
+
+Khoảnh khắc vui đùa
+
+</h2>
+
+
+<span>
+
+Ảnh 03
+
+</span>
+
 
 </div>
 
@@ -496,29 +572,50 @@ alt="Khoảnh khắc vui đùa">
 
 
 
+
+
+
+
+<!-- IMAGE 4 -->
+
+
 <article class="card">
 
 
 <div class="image-wrap">
 
 
-<img src="images/image-4.jpg"
+<img src="media_4.jpg"
 alt="Lời nhắc">
 
 
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Lời nhắc về cách nói năng</h2>
 
-<span>Ảnh 04</span>
+<h2>
+
+Lời nhắc về cách nói năng
+
+</h2>
+
+
+<span>
+
+Ảnh 04
+
+</span>
+
 
 </div>
 
@@ -527,6 +624,13 @@ alt="Lời nhắc">
 
 
 
+
+
+
+
+
+
+<!-- IMAGE 5 -->
 
 
 <article class="card">
@@ -535,28 +639,43 @@ alt="Lời nhắc">
 <div class="image-wrap">
 
 
-<img src="images/image-5.jpg"
+<img src="media_5.jpg"
 alt="Khoảnh khắc gia đình">
 
 
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Khoảnh khắc gia đình</h2>
 
-<span>Ảnh 05</span>
+<h2>
+
+Khoảnh khắc gia đình
+
+</h2>
+
+
+<span>
+
+Ảnh 05
+
+</span>
+
 
 </div>
 
 
 </article>
+
 
 
 
@@ -571,7 +690,9 @@ alt="Khoảnh khắc gia đình">
 
 
 <strong>
+
 © 2026 — All Rights Reserved.
+
 </strong>
 
 
@@ -579,10 +700,14 @@ alt="Khoảnh khắc gia đình">
 
 
 Mọi hình ảnh trên trang này được đăng với thông báo bản quyền.
-Không được sao chép, tải lại hoặc sử dụng thương mại khi chưa được cho phép.
+Không có website nào có thể chống sao chép tuyệt đối.
+Nên kết hợp watermark, metadata bản quyền và theo dõi vi phạm.
+
 
 
 </section>
+
+
 
 
 </main>
@@ -592,7 +717,9 @@ Không được sao chép, tải lại hoặc sử dụng thương mại khi ch�
 
 <footer>
 
+
 © 2026 Copyright Gallery · All rights reserved
+
 
 </footer>
 
@@ -600,65 +727,37 @@ Không được sao chép, tải lại hoặc sử dụng thương mại khi ch�
 
 
 
-<div id="viewer">
-
-<img id="viewer-img">
-
-</div>
-
-
-
-
 <script>
 
 
-const viewer =
-document.getElementById("viewer");
-
-
-const viewerImg =
-document.getElementById("viewer-img");
-
-
-
-document.querySelectorAll(".image-wrap img")
-.forEach(img=>{
-
-
-img.onclick=function(){
-
-viewerImg.src=this.src;
-
-viewer.style.display="flex";
-
-};
-
-
-});
-
-
-
-viewer.onclick=function(){
-
-viewer.style.display="none";
-
-};
-
-
+// chặn chuột phải
 
 document.addEventListener(
 "contextmenu",
-e=>e.preventDefault()
+function(e){
+
+e.preventDefault();
+
+}
+
 );
 
 
+// chặn kéo ảnh
+
 document.addEventListener(
 "dragstart",
-e=>e.preventDefault()
+function(e){
+
+e.preventDefault();
+
+}
+
 );
 
 
 </script>
+
 
 
 </body>
