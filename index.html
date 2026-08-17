@@ -10,15 +10,14 @@
 content="Bộ sưu tập hình ảnh có thông báo bản quyền. All Rights Reserved.">
 
 <style>
+
 :root{
     --bg:#080a0d;
     --panel:#14171c;
-    --panel2:#1b2027;
     --text:#ffffff;
     --muted:#aeb4bd;
     --line:#303640;
     --accent:#4da3ff;
-    --danger:#ff5555;
 }
 
 *{
@@ -33,10 +32,7 @@ body{
     margin:0;
     background:var(--bg);
     color:var(--text);
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 /* HEADER */
@@ -46,16 +42,15 @@ header{
     top:0;
     z-index:1000;
 
-    background:rgba(8,10,13,.95);
-    backdrop-filter:blur(12px);
-
+    background:rgba(8,10,13,.96);
     border-bottom:1px solid var(--line);
+
+    padding:18px 25px;
 }
 
 .header-inner{
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
-    padding:18px 20px;
 
     display:flex;
     justify-content:space-between;
@@ -65,270 +60,161 @@ header{
 
 .logo{
     font-size:22px;
-    font-weight:800;
+    font-weight:bold;
 }
 
-.logo span{
-    color:var(--accent);
-}
-
-.nav{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.nav a{
-    color:#fff;
-    text-decoration:none;
-    padding:9px 14px;
-    border:1px solid var(--line);
-    border-radius:8px;
+.rights{
+    color:#ff5555;
+    font-weight:bold;
     font-size:14px;
 }
 
-.nav a:hover{
-    background:var(--panel2);
+/* INTRO */
+
+.intro{
+    max-width:1400px;
+    margin:0 auto;
+    padding:45px 25px 25px;
 }
 
-/* HERO */
-
-.hero{
-    max-width:1200px;
-    margin:auto;
-    padding:60px 20px 35px;
-    text-align:center;
-}
-
-.hero h1{
+.intro h1{
     margin:0 0 15px;
-    font-size:42px;
+    font-size:38px;
 }
 
-.hero p{
-    max-width:750px;
-    margin:auto;
+.intro p{
     color:var(--muted);
     line-height:1.7;
-    font-size:16px;
-}
-
-.copyright-badge{
-    display:inline-block;
-    margin-top:20px;
-    padding:9px 15px;
-
-    border:1px solid var(--line);
-    border-radius:30px;
-
-    color:#fff;
-    background:var(--panel);
-    font-size:13px;
+    margin:7px 0;
 }
 
 /* GALLERY */
 
-.gallery-section{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
-}
-
-.section-title{
-    margin:20px 0;
-    font-size:25px;
-}
-
 .gallery{
-    display:grid;
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-    gap:20px;
+    max-width:1400px;
+    margin:0 auto;
+    padding:20px 25px 60px;
 }
 
-.photo-card{
-    position:relative;
-    overflow:hidden;
+/* MỖI ẢNH 1 DÒNG */
+
+.image-card{
+    width:100%;
+    margin:0 0 45px;
+    padding:0;
 
     background:var(--panel);
-
     border:1px solid var(--line);
-    border-radius:14px;
+    border-radius:12px;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.25);
+    overflow:hidden;
+    position:relative;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
 }
 
-.photo-card img{
+/* ẢNH TO */
+
+.image-container{
+    position:relative;
+    width:100%;
+    background:#000;
+    overflow:hidden;
+}
+
+.image-container img{
+    display:block;
+
     width:100%;
     height:auto;
-    display:block;
+
+    max-height:none;
+
+    object-fit:contain;
 
     user-select:none;
     -webkit-user-drag:none;
 
-    transition:
-        transform .3s ease,
-        opacity .3s ease;
-}
-
-.photo-card:hover img{
-    transform:scale(1.02);
+    pointer-events:none;
 }
 
 /* WATERMARK */
 
 .watermark{
     position:absolute;
-    left:50%;
+
     top:50%;
+    left:50%;
 
-    transform:
-        translate(-50%,-50%)
-        rotate(-25deg);
+    transform:translate(-50%,-50%) rotate(-25deg);
 
-    color:rgba(255,255,255,.28);
+    font-size:clamp(28px,5vw,70px);
 
-    font-size:30px;
-    font-weight:900;
+    font-weight:bold;
+
+    color:rgba(255,255,255,.20);
 
     white-space:nowrap;
 
     pointer-events:none;
 
     text-shadow:
-        0 2px 8px rgba(0,0,0,.6);
+        1px 1px 3px rgba(0,0,0,.8);
 }
 
-.photo-number{
+/* GÓC WATERMARK */
+
+.corner-watermark{
     position:absolute;
-    left:12px;
-    top:12px;
 
-    background:rgba(0,0,0,.65);
+    right:18px;
+    bottom:15px;
 
-    padding:6px 10px;
-
-    border-radius:7px;
-
-    font-size:12px;
-    font-weight:bold;
-}
-
-/* COPYRIGHT */
-
-.copyright-section{
-    max-width:1200px;
-    margin:40px auto;
-    padding:20px;
-}
-
-.copyright-box{
-    background:var(--panel);
-
-    border:1px solid var(--line);
-    border-radius:14px;
-
-    padding:25px;
-}
-
-.copyright-box h2{
-    margin-top:0;
-}
-
-.copyright-box p{
-    color:var(--muted);
-    line-height:1.7;
-}
-
-/* EMAIL */
-
-.email-section{
-    max-width:1200px;
-    margin:40px auto;
-    padding:20px;
-}
-
-.email-box{
-    background:var(--panel);
-
-    border:1px solid var(--line);
-    border-radius:14px;
-
-    padding:25px;
-}
-
-.email-box h2{
-    margin-top:0;
-}
-
-.email-description{
-    color:var(--muted);
-    line-height:1.6;
-}
-
-.email-list{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap:10px;
-
-    margin-top:20px;
-}
-
-.email-item{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-
-    padding:12px;
-
-    background:var(--panel2);
-
-    border:1px solid var(--line);
-    border-radius:9px;
-}
-
-.email-address{
-    color:#fff;
     font-size:14px;
-    word-break:break-all;
-}
+    font-weight:bold;
 
-.copy-button{
-    flex-shrink:0;
+    color:rgba(255,255,255,.65);
 
-    border:1px solid var(--line);
-    background:#242a32;
-
-    color:#fff;
+    background:rgba(0,0,0,.55);
 
     padding:7px 10px;
 
-    border-radius:7px;
+    border-radius:5px;
 
-    cursor:pointer;
+    pointer-events:none;
 }
 
-.copy-button:hover{
-    background:#303844;
+/* THÔNG TIN ẢNH */
+
+.image-info{
+    padding:18px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    border-top:1px solid var(--line);
 }
 
-.copy-button.copied{
-    background:#167c45;
+.image-title{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.image-copy{
+    color:#ff5555;
+    font-size:13px;
+    font-weight:bold;
 }
 
 /* FOOTER */
 
 footer{
-    margin-top:60px;
-
     border-top:1px solid var(--line);
 
-    padding:35px 20px;
+    padding:35px 25px;
 
     text-align:center;
 
@@ -341,636 +227,515 @@ footer strong{
     color:#fff;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width:800px){
+@media(max-width:700px){
+
+    header{
+        padding:15px;
+    }
 
     .header-inner{
-        flex-direction:column;
-        align-items:flex-start;
+        display:block;
     }
 
-    .hero h1{
-        font-size:32px;
+    .rights{
+        margin-top:7px;
     }
 
-    .gallery{
-        grid-template-columns:1fr;
+    .intro{
+        padding:30px 15px 15px;
     }
 
-    .email-list{
-        grid-template-columns:1fr;
-    }
-
-    .email-item{
-        align-items:flex-start;
-    }
-
-    .watermark{
-        font-size:22px;
-    }
-}
-
-@media(max-width:500px){
-
-    .hero{
-        padding-top:40px;
-    }
-
-    .hero h1{
+    .intro h1{
         font-size:28px;
     }
 
-    .email-item{
-        flex-direction:column;
+    .gallery{
+        padding:15px 10px 40px;
     }
 
-    .copy-button{
-        width:100%;
+    .image-card{
+        margin-bottom:30px;
+        border-radius:8px;
     }
+
+    .image-info{
+        display:block;
+    }
+
+    .image-copy{
+        margin-top:7px;
+    }
+
+    .watermark{
+        font-size:28px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
-<div class="header-inner">
+    <div class="header-inner">
 
-<div class="logo">
-Copyright <span>Gallery</span>
-</div>
+        <div class="logo">
+            © Copyright Gallery
+        </div>
 
-<nav class="nav">
+        <div class="rights">
+            ALL RIGHTS RESERVED
+        </div>
 
-<a href="#gallery">
-Ảnh
-</a>
-
-<a href="#copyright">
-Bản quyền
-</a>
-
-<a href="#emails">
-Email
-</a>
-
-</nav>
-
-</div>
+    </div>
 
 </header>
 
 
-<!-- HERO -->
+<section class="intro">
 
-<section class="hero">
+    <h1>Copyright Gallery</h1>
 
-<h1>
-Copyright Gallery
-</h1>
+    <p>
+        Bộ sưu tập hình ảnh được bảo vệ bản quyền.
+    </p>
 
-<p>
-Bộ sưu tập hình ảnh có thông báo bản quyền.
-Mọi hình ảnh được đăng tải trên trang này đều được bảo lưu quyền sở hữu.
-Không sao chép, sử dụng lại, chỉnh sửa hoặc phân phối khi chưa được cho phép.
-</p>
-
-<div class="copyright-badge">
-© All Rights Reserved
-</div>
+    <p>
+        Tất cả hình ảnh trên trang này thuộc quyền của chủ sở hữu.
+        Không được sao chép, tải xuống, chỉnh sửa, phân phối hoặc sử dụng
+        cho mục đích thương mại khi chưa được cho phép.
+    </p>
 
 </section>
 
 
-<!-- GALLERY -->
+<main class="gallery">
 
-<section
-id="gallery"
-class="gallery-section"
->
 
-<h2 class="section-title">
-Bộ sưu tập hình ảnh
-</h2>
+    <!-- ẢNH 1 -->
 
-<div class="gallery">
+    <article class="image-card">
 
+        <div class="image-container">
 
-<!-- ẢNH 1 -->
+            <img
+                src="1.jpg"
+                alt="Copyright Image 1"
+                draggable="false"
+            >
 
-<div class="photo-card">
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
-<span class="photo-number">
-Ảnh 01
-</span>
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
-<img
-src="media_1.jpg"
-alt="Hình ảnh 01"
-draggable="false"
->
+        </div>
 
-<div class="watermark">
-COPYRIGHT
-</div>
+        <div class="image-info">
 
-</div>
+            <div class="image-title">
+                Image 01
+            </div>
 
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
-<!-- ẢNH 2 -->
+        </div>
 
-<div class="photo-card">
+    </article>
 
-<span class="photo-number">
-Ảnh 02
-</span>
 
-<img
-src="media_2.jpg"
-alt="Hình ảnh 02"
-draggable="false"
->
+    <!-- ẢNH 2 -->
 
-<div class="watermark">
-COPYRIGHT
-</div>
+    <article class="image-card">
 
-</div>
+        <div class="image-container">
 
+            <img
+                src="2.jpg"
+                alt="Copyright Image 2"
+                draggable="false"
+            >
 
-<!-- ẢNH 3 -->
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
-<div class="photo-card">
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
-<span class="photo-number">
-Ảnh 03
-</span>
+        </div>
 
-<img
-src="media_3.jpg"
-alt="Hình ảnh 03"
-draggable="false"
->
+        <div class="image-info">
 
-<div class="watermark">
-COPYRIGHT
-</div>
+            <div class="image-title">
+                Image 02
+            </div>
 
-</div>
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
+        </div>
 
-<!-- ẢNH 4 -->
+    </article>
 
-<div class="photo-card">
 
-<span class="photo-number">
-Ảnh 04
-</span>
+    <!-- ẢNH 3 -->
 
-<img
-src="media_4.jpg"
-alt="Hình ảnh 04"
-draggable="false"
->
+    <article class="image-card">
 
-<div class="watermark">
-COPYRIGHT
-</div>
+        <div class="image-container">
 
-</div>
+            <img
+                src="3.jpg"
+                alt="Copyright Image 3"
+                draggable="false"
+            >
 
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
-<!-- ẢNH 5 -->
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
-<div class="photo-card">
+        </div>
 
-<span class="photo-number">
-Ảnh 05
-</span>
+        <div class="image-info">
 
-<img
-src="media_5.jpg"
-alt="Hình ảnh 05"
-draggable="false"
->
+            <div class="image-title">
+                Image 03
+            </div>
 
-<div class="watermark">
-COPYRIGHT
-</div>
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
-</div>
+        </div>
 
+    </article>
 
-<!-- ẢNH 6 -->
 
-<div class="photo-card">
+    <!-- ẢNH 4 -->
 
-<span class="photo-number">
-Ảnh 06
-</span>
+    <article class="image-card">
 
-<img
-src="media_6.jpg"
-alt="Hình ảnh 06"
-draggable="false"
->
+        <div class="image-container">
 
-<div class="watermark">
-COPYRIGHT
-</div>
+            <img
+                src="4.jfif"
+                alt="Copyright Image 4"
+                draggable="false"
+            >
 
-</div>
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
-<!-- ẢNH 7 -->
+        </div>
 
-<div class="photo-card">
+        <div class="image-info">
 
-<span class="photo-number">
-Ảnh 07
-</span>
+            <div class="image-title">
+                Image 04
+            </div>
 
-<img
-src="media_7.jpg"
-alt="Hình ảnh 07"
-draggable="false"
->
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
-<div class="watermark">
-COPYRIGHT
-</div>
+        </div>
 
-</div>
+    </article>
 
 
-<!-- ẢNH 8 -->
+    <!-- ẢNH 5 -->
 
-<div class="photo-card">
+    <article class="image-card">
 
-<span class="photo-number">
-Ảnh 08
-</span>
+        <div class="image-container">
 
-<img
-src="media_8.jpg"
-alt="Hình ảnh 08"
-draggable="false"
->
+            <img
+                src="5.jpg"
+                alt="Copyright Image 5"
+                draggable="false"
+            >
 
-<div class="watermark">
-COPYRIGHT
-</div>
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
-</div>
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
+        </div>
 
-<!-- ẢNH 9 -->
+        <div class="image-info">
 
-<div class="photo-card">
+            <div class="image-title">
+                Image 05
+            </div>
 
-<span class="photo-number">
-Ảnh 09
-</span>
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
-<img
-src="media_9.jpg"
-alt="Hình ảnh 09"
-draggable="false"
->
+        </div>
 
-<div class="watermark">
-COPYRIGHT
-</div>
+    </article>
 
-</div>
 
+    <!-- ẢNH 6 -->
 
-<!-- ẢNH 10 -->
+    <article class="image-card">
 
-<div class="photo-card">
+        <div class="image-container">
 
-<span class="photo-number">
-Ảnh 10
-</span>
+            <img
+                src="6.jpg"
+                alt="Copyright Image 6"
+                draggable="false"
+            >
 
-<img
-src="media_10.jpg"
-alt="Hình ảnh 10"
-draggable="false"
->
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
-<div class="watermark">
-COPYRIGHT
-</div>
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
-</div>
+        </div>
 
+        <div class="image-info">
 
-</div>
+            <div class="image-title">
+                Image 06
+            </div>
 
-</section>
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
+        </div>
 
-<!-- COPYRIGHT -->
+    </article>
 
-<section
-id="copyright"
-class="copyright-section"
->
 
-<div class="copyright-box">
+    <!-- ẢNH 7 -->
 
-<h2>
-Thông báo bản quyền
-</h2>
+    <article class="image-card">
 
-<p>
-Toàn bộ hình ảnh, nội dung và tài liệu được hiển thị
-trên trang này được bảo lưu quyền sở hữu.
-</p>
+        <div class="image-container">
 
-<p>
-Nghiêm cấm sao chép, tải xuống, chỉnh sửa,
-tái xuất bản, phân phối hoặc sử dụng cho mục đích
-thương mại khi chưa có sự cho phép của chủ sở hữu.
-</p>
+            <img
+                src="7.jpg"
+                alt="Copyright Image 7"
+                draggable="false"
+            >
 
-<p>
-Nếu bạn cho rằng nội dung trên trang này vi phạm
-quyền sở hữu trí tuệ của bạn, vui lòng liên hệ
-qua địa chỉ email được cung cấp bên dưới.
-</p>
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
 
-</div>
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
 
-</section>
+        </div>
 
+        <div class="image-info">
 
-<!-- EMAIL -->
+            <div class="image-title">
+                Image 07
+            </div>
 
-<section
-id="emails"
-class="email-section"
->
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
 
-<div class="email-box">
+        </div>
 
-<h2>
-Danh sách email liên hệ
-</h2>
+    </article>
 
-<p class="email-description">
-Nhấn nút "Sao chép" bên cạnh email để sao chép
-địa chỉ vào clipboard.
-</p>
 
-<div
-id="emailList"
-class="email-list"
->
-</div>
+    <!-- ẢNH 8 -->
 
-</div>
+    <article class="image-card">
 
-</section>
+        <div class="image-container">
 
+            <img
+                src="8.jpg"
+                alt="Copyright Image 8"
+                draggable="false"
+            >
 
-<!-- FOOTER -->
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
+
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
+
+        </div>
+
+        <div class="image-info">
+
+            <div class="image-title">
+                Image 08
+            </div>
+
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- ẢNH 9 -->
+
+    <article class="image-card">
+
+        <div class="image-container">
+
+            <img
+                src="9.jpg"
+                alt="Copyright Image 9"
+                draggable="false"
+            >
+
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
+
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
+
+        </div>
+
+        <div class="image-info">
+
+            <div class="image-title">
+                Image 09
+            </div>
+
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- ẢNH 10 -->
+
+    <article class="image-card">
+
+        <div class="image-container">
+
+            <img
+                src="10.jpg"
+                alt="Copyright Image 10"
+                draggable="false"
+            >
+
+            <div class="watermark">
+                COPYRIGHT — ALL RIGHTS RESERVED
+            </div>
+
+            <div class="corner-watermark">
+                © COPYRIGHT
+            </div>
+
+        </div>
+
+        <div class="image-info">
+
+            <div class="image-title">
+                Image 10
+            </div>
+
+            <div class="image-copy">
+                © ALL RIGHTS RESERVED
+            </div>
+
+        </div>
+
+    </article>
+
+
+</main>
+
 
 <footer>
 
-<div>
-<strong>
-Copyright Gallery
-</strong>
-</div>
+    <strong>Copyright Gallery</strong><br>
 
-<div>
-© 2026 All Rights Reserved.
-</div>
+    © 2026 All Rights Reserved.<br>
 
-<div>
-Hình ảnh được bảo vệ bởi bản quyền.
-</div>
+    Hình ảnh được đăng tải nhằm xác lập và công khai quyền sở hữu.
+    Không được sao chép hoặc sử dụng lại khi chưa được phép.
 
 </footer>
 
 
 <script>
 
-/* ================================
-   DANH SÁCH EMAIL
-================================ */
+/* CHẶN CHUỘT PHẢI */
 
-const emails = [
-
-"KristianEspudo52473@hotmail.com",
-"AntoinetteBongiorno5092@hotmail.com",
-"ShainaSoliven7384@hotmail.com",
-"KareemKlager2942@hotmail.com",
-"AssuntaIarrobino825469@hotmail.com",
-"KippQuintero80329@hotmail.com",
-"AlyviaTymes79392@hotmail.com",
-"ArtisBurgreen18242@hotmail.com",
-"LaylaBrownfield1412@hotmail.com",
-"CristopherTelesford23759@hotmail.com",
-"CathrynYokota13951@hotmail.com",
-"VerlonKasperbauer70029@hotmail.com",
-"LyndseyPilkinton2418@hotmail.com",
-"ElzadaFriedley588518@hotmail.com",
-"BevWilling165075@hotmail.com",
-"OthelAnguish6837@hotmail.com",
-"ColbyLosito620751@hotmail.com",
-"VeliaGaouette079047@hotmail.com",
-"ClariceStinger25904@hotmail.com",
-"GustAweau09918@hotmail.com",
-"AnjaliLaude416363@hotmail.com",
-"TashaStrothers0253@hotmail.com",
-"ElminaBovio4208@hotmail.com",
-"RamonFazzari7983@hotmail.com",
-"FondaMonsen9695@hotmail.com",
-"CarlottaSzwec53894@hotmail.com",
-"KerwinKrynski7423@hotmail.com",
-"KatrinaFalat15608@hotmail.com",
-"LinusPelen82833@hotmail.com",
-"AlfonsoLarregui5964@hotmail.com",
-"KadynSerratelli40904@hotmail.com",
-"MeghanRusso8560@hotmail.com",
-"MarshaRopelewski210774@hotmail.com",
-"ShawneeSheafer552606@hotmail.com",
-"StephaniaMandal7659@hotmail.com",
-"MerylArisman939937@hotmail.com",
-"KatinaKrodel6349@hotmail.com",
-"LaddieOberry320944@hotmail.com",
-"RandKinsland7965@hotmail.com",
-"WillaSoltys2924@hotmail.com",
-"JannetteZocchi45103@hotmail.com",
-"JoanneKappler027723@hotmail.com",
-"LoneyBursack49808@hotmail.com",
-"BushKropff09511@hotmail.com",
-"WiliamToland4801@hotmail.com",
-"LelandEllert019879@hotmail.com",
-"ZetaEvans20751@hotmail.com"
-
-];
-
-
-/* ================================
-   HIỂN THỊ EMAIL
-================================ */
-
-const emailList =
-document.getElementById("emailList");
-
-
-emails.forEach(function(email){
-
-    const item =
-    document.createElement("div");
-
-    item.className =
-    "email-item";
-
-
-    const address =
-    document.createElement("span");
-
-    address.className =
-    "email-address";
-
-    address.textContent =
-    email;
-
-
-    const button =
-    document.createElement("button");
-
-    button.className =
-    "copy-button";
-
-    button.textContent =
-    "Sao chép";
-
-
-    button.addEventListener(
-        "click",
-        async function(){
-
-            try{
-
-                await navigator.clipboard.writeText(email);
-
-                button.textContent =
-                "Đã sao chép";
-
-                button.classList.add(
-                    "copied"
-                );
-
-                setTimeout(function(){
-
-                    button.textContent =
-                    "Sao chép";
-
-                    button.classList.remove(
-                        "copied"
-                    );
-
-                },1500);
-
-            }catch(error){
-
-                const textArea =
-                document.createElement("textarea");
-
-                textArea.value =
-                email;
-
-                document.body.appendChild(
-                    textArea
-                );
-
-                textArea.select();
-
-                document.execCommand(
-                    "copy"
-                );
-
-                textArea.remove();
-
-                button.textContent =
-                "Đã sao chép";
-
-                setTimeout(function(){
-
-                    button.textContent =
-                    "Sao chép";
-
-                },1500);
-
-            }
-
-        }
-    );
-
-
-    item.appendChild(
-        address
-    );
-
-    item.appendChild(
-        button
-    );
-
-    emailList.appendChild(
-        item
-    );
-
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
 });
 
 
-/* ================================
-   CHẶN CHUỘT PHẢI
-================================ */
+/* CHẶN KÉO ẢNH */
 
-document.addEventListener(
-    "contextmenu",
-    function(event){
-
-        if(
-            event.target.tagName === "IMG"
-        ){
-
-            event.preventDefault();
-
-        }
-
+document.addEventListener("dragstart", function(e){
+    if(e.target.tagName === "IMG"){
+        e.preventDefault();
     }
-);
+});
 
 
-/* ================================
-   CHẶN KÉO ẢNH
-================================ */
+/* CHẶN MỘT SỐ PHÍM TẢI ẢNH */
 
-document.addEventListener(
-    "dragstart",
-    function(event){
+document.addEventListener("keydown", function(e){
 
-        if(
-            event.target.tagName === "IMG"
-        ){
-
-            event.preventDefault();
-
-        }
-
+    if(
+        e.ctrlKey &&
+        (
+            e.key === "s" ||
+            e.key === "S" ||
+            e.key === "u" ||
+            e.key === "U"
+        )
+    ){
+        e.preventDefault();
     }
-);
+
+});
 
 </script>
 
