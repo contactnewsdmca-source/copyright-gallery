@@ -5,18 +5,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="robots" content="index,follow">
-<meta name="description" content="Copyright protected image gallery.">
-
 <title>Copyright Gallery — All Rights Reserved</title>
 
 <style>
 
 :root{
---bg:#0b0d10;
---panel:#14171c;
---text:#f4f5f7;
---muted:#a9afb8;
+--bg:#080a0d;
+--panel:#12151a;
+--text:#ffffff;
+--muted:#aeb4bd;
 --line:#292e36;
 }
 
@@ -29,14 +26,14 @@ box-sizing:border-box;
 body{
 
 margin:0;
+
 background:var(--bg);
+
 color:var(--text);
 
 font-family:
 Inter,
-system-ui,
--apple-system,
-"Segoe UI",
+Arial,
 sans-serif;
 
 }
@@ -46,7 +43,7 @@ sans-serif;
 
 header{
 
-padding:70px 20px 45px;
+padding:70px 20px 50px;
 
 text-align:center;
 
@@ -56,7 +53,7 @@ background:
 linear-gradient(
 180deg,
 #151922,
-#0b0d10
+#080a0d
 );
 
 }
@@ -66,37 +63,36 @@ linear-gradient(
 
 display:inline-block;
 
-padding:8px 14px;
+padding:8px 16px;
 
-border:1px solid #3a414c;
+border:1px solid #555;
 
-border-radius:999px;
+border-radius:50px;
 
 font-size:12px;
 
-letter-spacing:.15em;
-
-color:#c8cdd5;
-
-text-transform:uppercase;
+letter-spacing:2px;
 
 }
 
 
+
 h1{
 
-font-size:clamp(38px,7vw,70px);
+font-size:70px;
 
-margin:20px 0 15px;
+margin:25px 0 15px;
 
 }
 
 
 .lead{
 
-max-width:750px;
+max-width:850px;
 
 margin:auto;
+
+font-size:18px;
 
 line-height:1.8;
 
@@ -105,14 +101,17 @@ color:var(--muted);
 }
 
 
+
 /* GALLERY */
 
 
 main{
 
-width:min(1400px,94%);
+width:95%;
 
-margin:50px auto 90px;
+max-width:1400px;
+
+margin:60px auto;
 
 }
 
@@ -120,39 +119,33 @@ margin:50px auto 90px;
 
 .grid{
 
-display:grid;
+display:flex;
 
-grid-template-columns:
-repeat(auto-fit,minmax(420px,1fr));
+flex-direction:column;
 
-gap:35px;
+gap:70px;
 
 }
 
 
 
+/* CARD */
+
+
 .card{
+
+width:100%;
 
 background:var(--panel);
 
 border:1px solid var(--line);
 
-border-radius:20px;
+border-radius:25px;
 
 overflow:hidden;
 
 box-shadow:
-0 15px 40px rgba(0,0,0,.3);
-
-transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-transform:scale(1.03);
+0 20px 50px rgba(0,0,0,.4);
 
 }
 
@@ -165,14 +158,11 @@ transform:scale(1.03);
 
 position:relative;
 
+width:100%;
+
 background:#000;
 
-overflow:hidden;
-
-cursor:pointer;
-
 }
-
 
 
 .image-wrap img{
@@ -181,11 +171,13 @@ display:block;
 
 width:100%;
 
-height:600px;
+height:auto;
+
+max-height:none;
 
 object-fit:contain;
 
-background:#000;
+cursor:pointer;
 
 user-select:none;
 
@@ -202,45 +194,39 @@ user-select:none;
 
 position:absolute;
 
-bottom:15px;
+bottom:20px;
 
-left:15px;
+left:20px;
 
-padding:7px 12px;
-
-font-size:11px;
-
-letter-spacing:.1em;
-
-color:white;
+padding:8px 14px;
 
 background:
-rgba(0,0,0,.45);
+rgba(0,0,0,.55);
 
-border:
-
-1px solid rgba(255,255,255,.3);
+border:1px solid rgba(255,255,255,.3);
 
 border-radius:8px;
 
-pointer-events:none;
+font-size:12px;
+
+letter-spacing:1px;
 
 }
 
 
 
-/* TITLE */
+/* CAPTION */
 
 
 .caption{
 
-padding:18px;
+padding:25px 30px;
 
 display:flex;
 
 justify-content:space-between;
 
-gap:15px;
+align-items:center;
 
 }
 
@@ -248,9 +234,9 @@ gap:15px;
 
 .caption h2{
 
-margin:0;
+font-size:32px;
 
-font-size:20px;
+margin:0;
 
 }
 
@@ -258,9 +244,12 @@ font-size:20px;
 
 .caption span{
 
+font-size:18px;
+
 color:var(--muted);
 
 }
+
 
 
 /* NOTICE */
@@ -268,17 +257,19 @@ color:var(--muted);
 
 .notice{
 
-margin-top:45px;
+margin-top:60px;
 
-padding:25px;
+padding:30px;
 
 border:1px solid var(--line);
 
-border-radius:18px;
+border-radius:20px;
+
+font-size:17px;
 
 line-height:1.8;
 
-color:#c8cdd5;
+color:#ddd;
 
 }
 
@@ -289,7 +280,7 @@ color:#c8cdd5;
 
 footer{
 
-padding:30px;
+padding:35px;
 
 text-align:center;
 
@@ -300,7 +291,8 @@ color:var(--muted);
 }
 
 
-/* FULL SCREEN IMAGE */
+
+/* FULL SCREEN */
 
 
 #viewer{
@@ -309,7 +301,13 @@ display:none;
 
 position:fixed;
 
-inset:0;
+top:0;
+
+left:0;
+
+right:0;
+
+bottom:0;
 
 background:
 rgba(0,0,0,.96);
@@ -321,7 +319,6 @@ align-items:center;
 z-index:9999;
 
 }
-
 
 
 #viewer img{
@@ -341,16 +338,17 @@ object-fit:contain;
 
 @media(max-width:700px){
 
-.grid{
 
-grid-template-columns:1fr;
+h1{
+
+font-size:42px;
 
 }
 
 
-.image-wrap img{
+.caption h2{
 
-height:400px;
+font-size:22px;
 
 }
 
@@ -359,9 +357,7 @@ height:400px;
 
 </style>
 
-
 </head>
-
 
 
 <body>
@@ -370,8 +366,9 @@ height:400px;
 
 <header>
 
+
 <span class="badge">
-Copyright Protected
+COPYRIGHT PROTECTED
 </span>
 
 
@@ -396,24 +393,24 @@ tái sử dụng hoặc phân phối khi chưa được cho phép.
 <main>
 
 
-
 <section class="grid">
 
 
 
-<!-- ẢNH 1 -->
-
 <article class="card">
+
 
 <div class="image-wrap">
 
+
 <img src="images/image-1.jpg"
-alt="Hoa hồng"
-draggable="false">
+alt="Hoa hồng">
+
 
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
+
 
 </div>
 
@@ -426,25 +423,27 @@ draggable="false">
 
 </div>
 
+
 </article>
 
 
 
 
-<!-- ẢNH 2 -->
-
 
 <article class="card">
 
+
 <div class="image-wrap">
 
+
 <img src="images/image-2.jpg"
-alt="Khoảnh khắc nắm tay"
-draggable="false">
+alt="Khoảnh khắc nắm tay">
+
 
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
+
 
 </div>
 
@@ -457,25 +456,27 @@ draggable="false">
 
 </div>
 
+
 </article>
 
 
 
 
-<!-- ẢNH 3 -->
-
 
 <article class="card">
 
+
 <div class="image-wrap">
 
+
 <img src="images/image-3.jpg"
-alt="Khoảnh khắc vui đùa"
-draggable="false">
+alt="Khoảnh khắc vui đùa">
+
 
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
+
 
 </div>
 
@@ -488,25 +489,27 @@ draggable="false">
 
 </div>
 
+
 </article>
 
 
 
 
-<!-- ẢNH 4 -->
-
 
 <article class="card">
 
+
 <div class="image-wrap">
 
+
 <img src="images/image-4.jpg"
-alt="Lời nhắc"
-draggable="false">
+alt="Lời nhắc">
+
 
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
+
 
 </div>
 
@@ -519,25 +522,27 @@ draggable="false">
 
 </div>
 
+
 </article>
 
 
 
 
-<!-- ẢNH 5 -->
-
 
 <article class="card">
 
+
 <div class="image-wrap">
 
+
 <img src="images/image-5.jpg"
-alt="Gia đình"
-draggable="false">
+alt="Khoảnh khắc gia đình">
+
 
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
+
 
 </div>
 
@@ -550,7 +555,9 @@ draggable="false">
 
 </div>
 
+
 </article>
+
 
 
 
@@ -562,22 +569,24 @@ draggable="false">
 
 <section class="notice">
 
+
 <strong>
 © 2026 — All Rights Reserved.
 </strong>
 
+
 <br><br>
 
+
 Mọi hình ảnh trên trang này được đăng với thông báo bản quyền.
-Hình ảnh không được sao chép, tái sử dụng hoặc phân phối khi chưa có sự cho phép.
-Trang sử dụng watermark, thông báo copyright và các biện pháp kỹ thuật nhằm hạn chế việc sử dụng trái phép.
+Không được sao chép, tải lại hoặc sử dụng thương mại khi chưa được cho phép.
 
 
 </section>
 
 
-
 </main>
+
 
 
 
@@ -589,9 +598,6 @@ Trang sử dụng watermark, thông báo copyright và các biện pháp kỹ th
 
 
 
-
-
-<!-- XEM ẢNH TOÀN MÀN HÌNH -->
 
 
 <div id="viewer">
@@ -606,8 +612,6 @@ Trang sử dụng watermark, thông báo copyright và các biện pháp kỹ th
 <script>
 
 
-// mở ảnh lớn
-
 const viewer =
 document.getElementById("viewer");
 
@@ -617,8 +621,7 @@ document.getElementById("viewer-img");
 
 
 
-document
-.querySelectorAll(".image-wrap img")
+document.querySelectorAll(".image-wrap img")
 .forEach(img=>{
 
 
@@ -635,18 +638,12 @@ viewer.style.display="flex";
 
 
 
-// đóng ảnh
-
 viewer.onclick=function(){
 
 viewer.style.display="none";
 
 };
 
-
-
-
-// chống tải cơ bản
 
 
 document.addEventListener(
@@ -664,6 +661,6 @@ e=>e.preventDefault()
 </script>
 
 
-
 </body>
+
 </html>
