@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="vi">
+
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Copyright Gallery — All Rights Reserved</title>
 
+
 <style>
 
 :root{
+
 --bg:#080a0d;
 --panel:#14171c;
 --text:#ffffff;
 --muted:#aeb4bd;
 --line:#303640;
+
 }
 
 
@@ -25,8 +30,11 @@ box-sizing:border-box;
 body{
 
 margin:0;
+
 background:var(--bg);
+
 color:var(--text);
+
 font-family:
 Inter,
 system-ui,
@@ -37,11 +45,22 @@ sans-serif;
 
 
 
+/* HEADER */
+
 header{
 
 padding:70px 20px 50px;
+
 text-align:center;
+
 border-bottom:1px solid var(--line);
+
+background:
+linear-gradient(
+180deg,
+#151922,
+#080a0d
+);
 
 }
 
@@ -50,10 +69,15 @@ border-bottom:1px solid var(--line);
 .badge{
 
 display:inline-block;
+
 padding:8px 15px;
-border:1px solid #444;
+
+border:1px solid #555;
+
 border-radius:30px;
+
 font-size:12px;
+
 letter-spacing:2px;
 
 }
@@ -63,6 +87,7 @@ letter-spacing:2px;
 h1{
 
 font-size:60px;
+
 margin:25px 0 15px;
 
 }
@@ -71,74 +96,119 @@ margin:25px 0 15px;
 
 .lead{
 
-max-width:800px;
+max-width:850px;
+
 margin:auto;
+
 color:var(--muted);
+
 font-size:18px;
-line-height:1.7;
+
+line-height:1.8;
 
 }
 
 
 
 
+/* CONTENT */
+
+
 main{
 
-width:90%;
-max-width:1200px;
+width:92%;
+
+max-width:1400px;
+
 margin:60px auto;
 
 }
 
 
 
+
 /* mỗi ảnh một dòng */
+
 
 .grid{
 
 display:flex;
+
 flex-direction:column;
-gap:60px;
+
+gap:70px;
 
 }
+
+
 
 
 
 .card{
 
 background:var(--panel);
+
 border:1px solid var(--line);
+
 border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.35);
+
+}
+
+
+
+
+/* ẢNH */
+
+
+.image-wrap{
+
+position:relative;
+
+width:100%;
+
+background:#000;
+
 overflow:hidden;
 
 }
 
 
 
-/* vùng ảnh */
+.image-wrap img{
 
-.image-wrap{
 
-position:relative;
 width:100%;
-background:#000;
+
+
+height:auto;
+
+
+display:block;
+
+
+object-fit:contain;
+
+
+transition:
+transform .5s ease;
+
 
 }
 
 
-/* ẢNH TO - HIỂN THỊ TOÀN BỘ */
 
 
-.image-wrap img{
+/* zoom */
 
-width:100%;
-height:auto;
 
-display:block;
+.image-wrap:hover img{
 
-object-fit:contain;
-
-max-height:none;
+transform:scale(1.05);
 
 }
 
@@ -149,37 +219,56 @@ max-height:none;
 
 .watermark{
 
+
 position:absolute;
 
-bottom:20px;
-left:20px;
 
-background:rgba(0,0,0,.55);
+left:25px;
+
+
+bottom:25px;
+
+
+background:
+rgba(0,0,0,.6);
+
 
 padding:10px 15px;
 
+
 border-radius:8px;
+
 
 font-size:12px;
 
+
 letter-spacing:1px;
+
+
+border:1px solid rgba(255,255,255,.3);
+
 
 }
 
 
 
-/* tiêu đề */
+/* TITLE */
 
 
 .caption{
 
+
 padding:25px;
+
 
 display:flex;
 
+
 justify-content:space-between;
 
+
 align-items:center;
+
 
 }
 
@@ -187,55 +276,79 @@ align-items:center;
 
 .caption h2{
 
-font-size:28px;
+
+font-size:30px;
+
+
 margin:0;
 
+
 }
+
 
 
 .caption span{
 
+
 color:var(--muted);
+
+
 font-size:18px;
 
+
 }
+
+
 
 
 
 .notice{
 
-margin-top:60px;
+
+margin-top:70px;
+
 
 padding:30px;
 
+
 border:1px solid var(--line);
+
 
 border-radius:20px;
 
+
 line-height:1.8;
+
 
 color:#ddd;
 
+
 }
+
+
 
 
 
 footer{
 
+
 border-top:1px solid var(--line);
 
-text-align:center;
 
 padding:30px;
 
+
+text-align:center;
+
+
 color:var(--muted);
+
 
 }
 
 
 
 
-/* mobile */
 
 @media(max-width:700px){
 
@@ -243,13 +356,6 @@ color:var(--muted);
 h1{
 
 font-size:38px;
-
-}
-
-
-.grid{
-
-gap:35px;
 
 }
 
@@ -265,23 +371,31 @@ font-size:22px;
 
 </style>
 
+
 </head>
 
 
+
 <body>
+
 
 
 <header>
 
 
 <div class="badge">
+
 COPYRIGHT PROTECTED
+
 </div>
 
 
 <h1>
+
 My Image Gallery
+
 </h1>
+
 
 
 <p class="lead">
@@ -302,21 +416,27 @@ tái sử dụng hoặc phân phối khi chưa được cho phép.
 <main>
 
 
+
 <section class="grid">
 
 
 
-<!-- ẢNH 1 -->
+
+
+<!-- IMAGE 1 -->
 
 <article class="card">
 
 <div class="image-wrap">
 
-<img src="images/image-1.jpg"
+<img src="media_1.jpg"
 alt="Hoa hồng">
 
+
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 </div>
@@ -324,12 +444,21 @@ alt="Hoa hồng">
 
 <div class="caption">
 
-<h2>Hoa hồng</h2>
+<h2>
 
-<span>Ảnh 01</span>
+Hoa hồng
+
+</h2>
+
+
+<span>
+
+Ảnh 01
+
+</span>
+
 
 </div>
-
 
 </article>
 
@@ -337,29 +466,49 @@ alt="Hoa hồng">
 
 
 
-<!-- ẢNH 2 -->
+
+
+
+<!-- IMAGE 2 -->
 
 
 <article class="card">
 
 <div class="image-wrap">
 
-<img src="images/image-2.jpg"
+
+<img src="media_2.jpg"
 alt="Khoảnh khắc nắm tay">
 
 
+
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
-</div>
 
 </div>
+
+
+</div>
+
 
 
 <div class="caption">
 
-<h2>Khoảnh khắc nắm tay</h2>
 
-<span>Ảnh 02</span>
+<h2>
+
+Khoảnh khắc nắm tay
+
+</h2>
+
+
+<span>
+
+Ảnh 02
+
+</span>
+
 
 </div>
 
@@ -372,30 +521,47 @@ alt="Khoảnh khắc nắm tay">
 
 
 
-<!-- ẢNH 3 -->
+
+
+<!-- IMAGE 3 -->
 
 
 <article class="card">
 
 <div class="image-wrap">
 
-<img src="images/image-3.jpg"
+
+<img src="media_3.jpg"
 alt="Khoảnh khắc vui đùa">
 
 
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Khoảnh khắc vui đùa</h2>
 
-<span>Ảnh 03</span>
+<h2>
+
+Khoảnh khắc vui đùa
+
+</h2>
+
+
+<span>
+
+Ảnh 03
+
+</span>
+
 
 </div>
 
@@ -408,30 +574,48 @@ alt="Khoảnh khắc vui đùa">
 
 
 
-<!-- ẢNH 4 -->
+
+
+<!-- IMAGE 4 -->
 
 
 <article class="card">
 
+
 <div class="image-wrap">
 
-<img src="images/image-4.jpg"
+
+<img src="media_4.jpg"
 alt="Lời nhắc">
 
 
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Lời nhắc về cách nói năng</h2>
 
-<span>Ảnh 04</span>
+<h2>
+
+Lời nhắc về cách nói năng
+
+</h2>
+
+
+<span>
+
+Ảnh 04
+
+</span>
+
 
 </div>
 
@@ -444,35 +628,55 @@ alt="Lời nhắc">
 
 
 
-<!-- ẢNH 5 -->
+
+
+<!-- IMAGE 5 -->
 
 
 <article class="card">
 
+
 <div class="image-wrap">
 
-<img src="images/image-5.jpg"
-alt="Gia đình">
+
+<img src="media_5.jpg"
+alt="Khoảnh khắc gia đình">
 
 
 <div class="watermark">
+
 © COPYRIGHT • ALL RIGHTS RESERVED
+
 </div>
 
 
 </div>
+
 
 
 <div class="caption">
 
-<h2>Khoảnh khắc gia đình</h2>
 
-<span>Ảnh 05</span>
+<h2>
+
+Khoảnh khắc gia đình
+
+</h2>
+
+
+<span>
+
+Ảnh 05
+
+</span>
+
 
 </div>
 
 
 </article>
+
+
 
 
 
@@ -486,7 +690,9 @@ alt="Gia đình">
 
 
 <strong>
+
 © 2026 — All Rights Reserved.
+
 </strong>
 
 
@@ -498,7 +704,10 @@ Không có website nào có thể chống sao chép tuyệt đối.
 Nên kết hợp watermark, metadata bản quyền và theo dõi vi phạm.
 
 
+
 </section>
+
+
 
 
 </main>
@@ -508,28 +717,47 @@ Nên kết hợp watermark, metadata bản quyền và theo dõi vi phạm.
 
 <footer>
 
+
 © 2026 Copyright Gallery · All rights reserved
 
+
 </footer>
+
+
 
 
 
 <script>
 
 
+// chặn chuột phải
+
 document.addEventListener(
 "contextmenu",
-e=>e.preventDefault()
+function(e){
+
+e.preventDefault();
+
+}
+
 );
 
 
+// chặn kéo ảnh
+
 document.addEventListener(
 "dragstart",
-e=>e.preventDefault()
+function(e){
+
+e.preventDefault();
+
+}
+
 );
 
 
 </script>
+
 
 
 </body>
