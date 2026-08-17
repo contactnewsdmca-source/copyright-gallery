@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="vi">
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,10 +10,10 @@
 
 :root{
 --bg:#080a0d;
---panel:#12151a;
+--panel:#14171c;
 --text:#ffffff;
 --muted:#aeb4bd;
---line:#292e36;
+--line:#303640;
 }
 
 
@@ -26,51 +25,35 @@ box-sizing:border-box;
 body{
 
 margin:0;
-
 background:var(--bg);
-
 color:var(--text);
-
 font-family:
 Inter,
+system-ui,
 Arial,
 sans-serif;
 
 }
 
 
-/* HEADER */
 
 header{
 
 padding:70px 20px 50px;
-
 text-align:center;
-
 border-bottom:1px solid var(--line);
 
-background:
-linear-gradient(
-180deg,
-#151922,
-#080a0d
-);
-
 }
+
 
 
 .badge{
 
 display:inline-block;
-
-padding:8px 16px;
-
-border:1px solid #555;
-
-border-radius:50px;
-
+padding:8px 15px;
+border:1px solid #444;
+border-radius:30px;
 font-size:12px;
-
 letter-spacing:2px;
 
 }
@@ -79,115 +62,89 @@ letter-spacing:2px;
 
 h1{
 
-font-size:70px;
-
+font-size:60px;
 margin:25px 0 15px;
 
 }
 
 
+
 .lead{
 
-max-width:850px;
-
+max-width:800px;
 margin:auto;
-
-font-size:18px;
-
-line-height:1.8;
-
 color:var(--muted);
+font-size:18px;
+line-height:1.7;
 
 }
 
 
 
-/* GALLERY */
-
 
 main{
 
-width:95%;
-
-max-width:1400px;
-
+width:90%;
+max-width:1200px;
 margin:60px auto;
 
 }
 
 
 
+/* mỗi ảnh một dòng */
+
 .grid{
 
 display:flex;
-
 flex-direction:column;
-
-gap:70px;
+gap:60px;
 
 }
 
-
-
-/* CARD */
 
 
 .card{
 
-width:100%;
-
 background:var(--panel);
-
 border:1px solid var(--line);
-
 border-radius:25px;
-
 overflow:hidden;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.4);
 
 }
 
 
 
-/* IMAGE */
-
+/* vùng ảnh */
 
 .image-wrap{
 
 position:relative;
-
 width:100%;
-
 background:#000;
 
 }
 
 
+/* ẢNH TO - HIỂN THỊ TOÀN BỘ */
+
+
 .image-wrap img{
+
+width:100%;
+height:auto;
 
 display:block;
 
-width:100%;
-
-height:auto;
-
-max-height:none;
-
 object-fit:contain;
 
-cursor:pointer;
-
-user-select:none;
-
--webkit-user-drag:none;
+max-height:none;
 
 }
 
 
 
-/* WATERMARK */
+/* watermark */
 
 
 .watermark{
@@ -195,15 +152,11 @@ user-select:none;
 position:absolute;
 
 bottom:20px;
-
 left:20px;
 
-padding:8px 14px;
+background:rgba(0,0,0,.55);
 
-background:
-rgba(0,0,0,.55);
-
-border:1px solid rgba(255,255,255,.3);
+padding:10px 15px;
 
 border-radius:8px;
 
@@ -215,12 +168,12 @@ letter-spacing:1px;
 
 
 
-/* CAPTION */
+/* tiêu đề */
 
 
 .caption{
 
-padding:25px 30px;
+padding:25px;
 
 display:flex;
 
@@ -234,25 +187,19 @@ align-items:center;
 
 .caption h2{
 
-font-size:32px;
-
+font-size:28px;
 margin:0;
 
 }
 
 
-
 .caption span{
 
-font-size:18px;
-
 color:var(--muted);
+font-size:18px;
 
 }
 
-
-
-/* NOTICE */
 
 
 .notice{
@@ -265,8 +212,6 @@ border:1px solid var(--line);
 
 border-radius:20px;
 
-font-size:17px;
-
 line-height:1.8;
 
 color:#ddd;
@@ -275,16 +220,13 @@ color:#ddd;
 
 
 
-/* FOOTER */
-
-
 footer{
 
-padding:35px;
+border-top:1px solid var(--line);
 
 text-align:center;
 
-border-top:1px solid var(--line);
+padding:30px;
 
 color:var(--muted);
 
@@ -292,56 +234,22 @@ color:var(--muted);
 
 
 
-/* FULL SCREEN */
 
-
-#viewer{
-
-display:none;
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-right:0;
-
-bottom:0;
-
-background:
-rgba(0,0,0,.96);
-
-justify-content:center;
-
-align-items:center;
-
-z-index:9999;
-
-}
-
-
-#viewer img{
-
-max-width:95%;
-
-max-height:95%;
-
-object-fit:contain;
-
-}
-
-
-
-/* MOBILE */
-
+/* mobile */
 
 @media(max-width:700px){
 
 
 h1{
 
-font-size:42px;
+font-size:38px;
+
+}
+
+
+.grid{
+
+gap:35px;
 
 }
 
@@ -363,13 +271,12 @@ font-size:22px;
 <body>
 
 
-
 <header>
 
 
-<span class="badge">
+<div class="badge">
 COPYRIGHT PROTECTED
-</span>
+</div>
 
 
 <h1>
@@ -390,6 +297,8 @@ tái sử dụng hoặc phân phối khi chưa được cho phép.
 
 
 
+
+
 <main>
 
 
@@ -397,20 +306,18 @@ tái sử dụng hoặc phân phối khi chưa được cho phép.
 
 
 
+<!-- ẢNH 1 -->
+
 <article class="card">
 
-
 <div class="image-wrap">
-
 
 <img src="images/image-1.jpg"
 alt="Hoa hồng">
 
-
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
-
 
 </div>
 
@@ -430,11 +337,12 @@ alt="Hoa hồng">
 
 
 
+<!-- ẢNH 2 -->
+
+
 <article class="card">
 
-
 <div class="image-wrap">
-
 
 <img src="images/image-2.jpg"
 alt="Khoảnh khắc nắm tay">
@@ -443,7 +351,6 @@ alt="Khoảnh khắc nắm tay">
 <div class="watermark">
 © COPYRIGHT • ALL RIGHTS RESERVED
 </div>
-
 
 </div>
 
@@ -463,11 +370,14 @@ alt="Khoảnh khắc nắm tay">
 
 
 
+
+
+<!-- ẢNH 3 -->
+
+
 <article class="card">
 
-
 <div class="image-wrap">
-
 
 <img src="images/image-3.jpg"
 alt="Khoảnh khắc vui đùa">
@@ -496,11 +406,14 @@ alt="Khoảnh khắc vui đùa">
 
 
 
+
+
+<!-- ẢNH 4 -->
+
+
 <article class="card">
 
-
 <div class="image-wrap">
-
 
 <img src="images/image-4.jpg"
 alt="Lời nhắc">
@@ -529,14 +442,17 @@ alt="Lời nhắc">
 
 
 
-<article class="card">
 
+
+<!-- ẢNH 5 -->
+
+
+<article class="card">
 
 <div class="image-wrap">
 
-
 <img src="images/image-5.jpg"
-alt="Khoảnh khắc gia đình">
+alt="Gia đình">
 
 
 <div class="watermark">
@@ -560,7 +476,6 @@ alt="Khoảnh khắc gia đình">
 
 
 
-
 </section>
 
 
@@ -579,7 +494,8 @@ alt="Khoảnh khắc gia đình">
 
 
 Mọi hình ảnh trên trang này được đăng với thông báo bản quyền.
-Không được sao chép, tải lại hoặc sử dụng thương mại khi chưa được cho phép.
+Không có website nào có thể chống sao chép tuyệt đối.
+Nên kết hợp watermark, metadata bản quyền và theo dõi vi phạm.
 
 
 </section>
@@ -598,52 +514,7 @@ Không được sao chép, tải lại hoặc sử dụng thương mại khi ch�
 
 
 
-
-
-<div id="viewer">
-
-<img id="viewer-img">
-
-</div>
-
-
-
-
 <script>
-
-
-const viewer =
-document.getElementById("viewer");
-
-
-const viewerImg =
-document.getElementById("viewer-img");
-
-
-
-document.querySelectorAll(".image-wrap img")
-.forEach(img=>{
-
-
-img.onclick=function(){
-
-viewerImg.src=this.src;
-
-viewer.style.display="flex";
-
-};
-
-
-});
-
-
-
-viewer.onclick=function(){
-
-viewer.style.display="none";
-
-};
-
 
 
 document.addEventListener(
