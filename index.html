@@ -1,791 +1,978 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
-<meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Copyright Gallery — All Rights Reserved</title>
 
+<meta name="description"
+content="Bộ sưu tập hình ảnh có thông báo bản quyền. All Rights Reserved.">
 
 <style>
-
 :root{
-
---bg:#080a0d;
---panel:#14171c;
---text:#ffffff;
---muted:#aeb4bd;
---line:#303640;
-
+    --bg:#080a0d;
+    --panel:#14171c;
+    --panel2:#1b2027;
+    --text:#ffffff;
+    --muted:#aeb4bd;
+    --line:#303640;
+    --accent:#4da3ff;
+    --danger:#ff5555;
 }
-
 
 *{
-
-box-sizing:border-box;
-
+    box-sizing:border-box;
 }
 
-
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-
-margin:0;
-
-background:var(--bg);
-
-color:var(--text);
-
-font-family:
-
-Inter,
-
-system-ui,
-
-Arial,
-
-sans-serif;
-
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 }
-
-
 
 /* HEADER */
 
-
 header{
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-padding:70px 20px 50px;
+    background:rgba(8,10,13,.95);
+    backdrop-filter:blur(12px);
 
-text-align:center;
-
-border-bottom:1px solid var(--line);
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#151922,
-
-#080a0d
-
-);
-
+    border-bottom:1px solid var(--line);
 }
 
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 20px;
 
-
-.badge{
-
-display:inline-block;
-
-padding:8px 16px;
-
-border:1px solid #555;
-
-border-radius:30px;
-
-font-size:12px;
-
-letter-spacing:2px;
-
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
 }
 
-
-
-h1{
-
-font-size:60px;
-
-margin:25px 0 15px;
-
+.logo{
+    font-size:22px;
+    font-weight:800;
 }
 
-
-
-.lead{
-
-max-width:850px;
-
-margin:auto;
-
-color:var(--muted);
-
-font-size:18px;
-
-line-height:1.8;
-
+.logo span{
+    color:var(--accent);
 }
 
-
-
-
-
-/* MAIN */
-
-
-main{
-
-width:92%;
-
-max-width:1400px;
-
-margin:60px auto;
-
+.nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    padding:9px 14px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    font-size:14px;
+}
 
+.nav a:hover{
+    background:var(--panel2);
+}
 
+/* HERO */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px 35px;
+    text-align:center;
+}
+
+.hero h1{
+    margin:0 0 15px;
+    font-size:42px;
+}
+
+.hero p{
+    max-width:750px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.7;
+    font-size:16px;
+}
+
+.copyright-badge{
+    display:inline-block;
+    margin-top:20px;
+    padding:9px 15px;
+
+    border:1px solid var(--line);
+    border-radius:30px;
+
+    color:#fff;
+    background:var(--panel);
+    font-size:13px;
+}
 
 /* GALLERY */
 
-
-.grid{
-
-display:flex;
-
-flex-direction:column;
-
-gap:70px;
-
+.gallery-section{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
 }
 
-
-
-
-.card{
-
-background:var(--panel);
-
-border:1px solid var(--line);
-
-border-radius:25px;
-
-overflow:hidden;
-
-box-shadow:
-
-0 20px 50px rgba(0,0,0,.35);
-
+.section-title{
+    margin:20px 0;
+    font-size:25px;
 }
 
-
-
-
-.image-wrap{
-
-position:relative;
-
-width:100%;
-
-background:#000;
-
-overflow:hidden;
-
+.gallery{
+    display:grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap:20px;
 }
 
+.photo-card{
+    position:relative;
+    overflow:hidden;
 
+    background:var(--panel);
 
+    border:1px solid var(--line);
+    border-radius:14px;
 
-.image-wrap img{
-
-width:100%;
-
-height:auto;
-
-display:block;
-
-object-fit:contain;
-
-transition:.5s;
-
-cursor:pointer;
-
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
 }
 
+.photo-card img{
+    width:100%;
+    height:auto;
+    display:block;
 
+    user-select:none;
+    -webkit-user-drag:none;
 
-
-.image-wrap:hover img{
-
-transform:scale(1.05);
-
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
 }
 
+.photo-card:hover img{
+    transform:scale(1.02);
+}
 
-
-
+/* WATERMARK */
 
 .watermark{
+    position:absolute;
+    left:50%;
+    top:50%;
 
-position:absolute;
+    transform:
+        translate(-50%,-50%)
+        rotate(-25deg);
 
-left:25px;
+    color:rgba(255,255,255,.28);
 
-bottom:25px;
+    font-size:30px;
+    font-weight:900;
 
-background:
+    white-space:nowrap;
 
-rgba(0,0,0,.6);
+    pointer-events:none;
 
-padding:10px 15px;
-
-border-radius:8px;
-
-font-size:12px;
-
-letter-spacing:1px;
-
-border:1px solid rgba(255,255,255,.3);
-
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.6);
 }
 
+.photo-number{
+    position:absolute;
+    left:12px;
+    top:12px;
 
+    background:rgba(0,0,0,.65);
 
+    padding:6px 10px;
 
+    border-radius:7px;
 
-.caption{
-
-padding:25px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
+    font-size:12px;
+    font-weight:bold;
 }
 
+/* COPYRIGHT */
 
-
-.caption h2{
-
-font-size:30px;
-
-margin:0;
-
+.copyright-section{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
 }
 
+.copyright-box{
+    background:var(--panel);
 
+    border:1px solid var(--line);
+    border-radius:14px;
 
-.caption span{
-
-font-size:18px;
-
-color:var(--muted);
-
+    padding:25px;
 }
 
-
-
-
-.notice{
-
-margin-top:70px;
-
-padding:30px;
-
-border:1px solid var(--line);
-
-border-radius:20px;
-
-line-height:1.8;
-
-color:#ddd;
-
+.copyright-box h2{
+    margin-top:0;
 }
 
+.copyright-box p{
+    color:var(--muted);
+    line-height:1.7;
+}
 
+/* EMAIL */
 
+.email-section{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+}
 
+.email-box{
+    background:var(--panel);
+
+    border:1px solid var(--line);
+    border-radius:14px;
+
+    padding:25px;
+}
+
+.email-box h2{
+    margin-top:0;
+}
+
+.email-description{
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.email-list{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.email-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+
+    padding:12px;
+
+    background:var(--panel2);
+
+    border:1px solid var(--line);
+    border-radius:9px;
+}
+
+.email-address{
+    color:#fff;
+    font-size:14px;
+    word-break:break-all;
+}
+
+.copy-button{
+    flex-shrink:0;
+
+    border:1px solid var(--line);
+    background:#242a32;
+
+    color:#fff;
+
+    padding:7px 10px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+}
+
+.copy-button:hover{
+    background:#303844;
+}
+
+.copy-button.copied{
+    background:#167c45;
+}
+
+/* FOOTER */
 
 footer{
+    margin-top:60px;
 
-border-top:1px solid var(--line);
+    border-top:1px solid var(--line);
 
-padding:30px;
+    padding:35px 20px;
 
-text-align:center;
+    text-align:center;
 
-color:var(--muted);
+    color:var(--muted);
 
+    line-height:1.7;
 }
 
-
-
-
-
-@media(max-width:700px){
-
-
-h1{
-
-font-size:38px;
-
+footer strong{
+    color:#fff;
 }
 
+/* RESPONSIVE */
 
-.caption h2{
+@media(max-width:800px){
 
-font-size:22px;
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 
+    .hero h1{
+        font-size:32px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .email-list{
+        grid-template-columns:1fr;
+    }
+
+    .email-item{
+        align-items:flex-start;
+    }
+
+    .watermark{
+        font-size:22px;
+    }
 }
 
+@media(max-width:500px){
 
+    .hero{
+        padding-top:40px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .email-item{
+        flex-direction:column;
+    }
+
+    .copy-button{
+        width:100%;
+    }
 }
-
 </style>
-
-
 </head>
-
-
 
 <body>
 
+<!-- HEADER -->
 
 <header>
 
+<div class="header-inner">
 
-<div class="badge">
-
-COPYRIGHT PROTECTED
-
+<div class="logo">
+Copyright <span>Gallery</span>
 </div>
 
+<nav class="nav">
 
+<a href="#gallery">
+Ảnh
+</a>
 
-<h1>
+<a href="#copyright">
+Bản quyền
+</a>
 
-My Image Gallery
+<a href="#emails">
+Email
+</a>
 
-</h1>
+</nav>
 
-
-
-<p class="lead">
-
-Bộ sưu tập hình ảnh được công bố trực tuyến.
-Hình ảnh thuộc quyền của chủ sở hữu và không được sao chép,
-tái sử dụng hoặc phân phối khi chưa được cho phép.
-
-</p>
-
+</div>
 
 </header>
 
 
+<!-- HERO -->
 
+<section class="hero">
 
-<main>
-
-
-
-<section class="grid">
-
-
-
-<article class="card">
-
-
-<div class="image-wrap">
-
-
-<img src="media_1.jpg" alt="Hoa hồng">
-
-
-<div class="watermark">
-
-© COPYRIGHT • ALL RIGHTS RESERVED
-
-</div>
-
-
-</div>
-
-
-
-<div class="caption">
-
-<h2>
-
-Hoa hồng
-
-</h2>
-
-
-<span>
-
-Ảnh 01
-
-</span>
-
-</div>
-
-
-</article>
-
-
-
-
-
-<article class="card">
-
-
-<div class="image-wrap">
-
-
-<img src="media_2.jpg" alt="Khoảnh khắc nắm tay">
-
-
-<div class="watermark">
-
-© COPYRIGHT • ALL RIGHTS RESERVED
-
-</div>
-
-
-</div>
-
-
-
-<div class="caption">
-
-<h2>
-
-Khoảnh khắc nắm tay
-
-</h2>
-
-
-<span>
-
-Ảnh 02
-
-</span>
-
-</div>
-
-
-</article>
-
-
-
-
-
-<article class="card">
-
-
-<div class="image-wrap">
-
-
-<img src="media_3.jpg" alt="Khoảnh khắc vui đùa">
-
-
-<div class="watermark">
-
-© COPYRIGHT • ALL RIGHTS RESERVED
-
-</div>
-
-
-</div>
-
-
-
-<div class="caption">
-
-<h2>
-
-Khoảnh khắc vui đùa
-
-</h2>
-
-
-<span>
-
-Ảnh 03
-
-</span>
-
-</div>
-
-
-</article>
-
-
-
-
-
-<article class="card">
-
-
-<div class="image-wrap">
-
-
-<img src="media_4.jpg" alt="Lời nhắc">
-
-
-<div class="watermark">
-
-© COPYRIGHT • ALL RIGHTS RESERVED
-
-</div>
-
-
-</div>
-
-
-
-<div class="caption">
-
-<h2>
-
-Lời nhắc về cách nói năng
-
-</h2>
-
-
-<span>
-
-Ảnh 04
-
-</span>
-
-</div>
-
-
-</article>
-
-
-
-
-
-<article class="card">
-
-
-<div class="image-wrap">
-
-
-<img src="media_5.jpg" alt="Khoảnh khắc gia đình">
-
-
-<div class="watermark">
-
-© COPYRIGHT • ALL RIGHTS RESERVED
-
-</div>
-
-
-</div>
-
-
-
-<div class="caption">
-
-<h2>
-
-Khoảnh khắc gia đình
-
-</h2>
-
-
-<span>
-
-Ảnh 05
-
-</span>
-
-</div>
-
-
-</article>
-
-</section>
-
-
-
-<section class="notice">
-
-
-<strong>
-
-© 2026 — All Rights Reserved.
-
-</strong>
-
-
-<br><br>
-
-
-Mọi hình ảnh trên trang này được đăng với thông báo bản quyền.
-Hình ảnh thuộc quyền sở hữu của tác giả.
-Không được sao chép, tải lại, phân phối hoặc sử dụng thương mại khi chưa được cho phép.
-
-
-</section>
-
-
-
-
-
-<section class="notice">
-
-
-<h2>
-
-Copyright Contact Records
-
-</h2>
-
-
+<h1>
+Copyright Gallery
+</h1>
 
 <p>
-
-Thông tin liên hệ bản quyền của bộ sưu tập hình ảnh.
-
+Bộ sưu tập hình ảnh có thông báo bản quyền.
+Mọi hình ảnh được đăng tải trên trang này đều được bảo lưu quyền sở hữu.
+Không sao chép, sử dụng lại, chỉnh sửa hoặc phân phối khi chưa được cho phép.
 </p>
 
-
-
-
-<div style="
-
-background:#080a0d;
-
-padding:25px;
-
-border-radius:15px;
-
-border:1px solid #303640;
-
-line-height:2;
-
-font-size:16px;
-
-">
-
-
-
-DanyellOfenloch81747@hotmail.com<br>
-
-LavoniaVanwychen03091@hotmail.com<br>
-
-GreciaSiapno18037@hotmail.com<br>
-
-MerilynSpakowski1740@hotmail.com<br>
-
-UrijahMunton3434@hotmail.com<br>
-
-ConcepcionCabalo1000@hotmail.com<br>
-
-BrionnaFetcho0396@hotmail.com<br>
-
-PhyliciaLourdes270662@hotmail.com<br>
-
-MiraPope3873@hotmail.com<br>
-
-JoelleHelem4717@hotmail.com<br>
-
-KurtLuckner8657@hotmail.com<br>
-
-MargotLanphar5037@hotmail.com
-
-
-
+<div class="copyright-badge">
+© All Rights Reserved
 </div>
-
-
 
 </section>
 
 
+<!-- GALLERY -->
 
-</main>
+<section
+id="gallery"
+class="gallery-section"
+>
+
+<h2 class="section-title">
+Bộ sưu tập hình ảnh
+</h2>
+
+<div class="gallery">
 
 
+<!-- ẢNH 1 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 01
+</span>
+
+<img
+src="media_1.jpg"
+alt="Hình ảnh 01"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
 
 
+<!-- ẢNH 2 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 02
+</span>
+
+<img
+src="media_2.jpg"
+alt="Hình ảnh 02"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 3 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 03
+</span>
+
+<img
+src="media_3.jpg"
+alt="Hình ảnh 03"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 4 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 04
+</span>
+
+<img
+src="media_4.jpg"
+alt="Hình ảnh 04"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 5 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 05
+</span>
+
+<img
+src="media_5.jpg"
+alt="Hình ảnh 05"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 6 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 06
+</span>
+
+<img
+src="media_6.jpg"
+alt="Hình ảnh 06"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 7 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 07
+</span>
+
+<img
+src="media_7.jpg"
+alt="Hình ảnh 07"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 8 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 08
+</span>
+
+<img
+src="media_8.jpg"
+alt="Hình ảnh 08"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 9 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 09
+</span>
+
+<img
+src="media_9.jpg"
+alt="Hình ảnh 09"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+<!-- ẢNH 10 -->
+
+<div class="photo-card">
+
+<span class="photo-number">
+Ảnh 10
+</span>
+
+<img
+src="media_10.jpg"
+alt="Hình ảnh 10"
+draggable="false"
+>
+
+<div class="watermark">
+COPYRIGHT
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- COPYRIGHT -->
+
+<section
+id="copyright"
+class="copyright-section"
+>
+
+<div class="copyright-box">
+
+<h2>
+Thông báo bản quyền
+</h2>
+
+<p>
+Toàn bộ hình ảnh, nội dung và tài liệu được hiển thị
+trên trang này được bảo lưu quyền sở hữu.
+</p>
+
+<p>
+Nghiêm cấm sao chép, tải xuống, chỉnh sửa,
+tái xuất bản, phân phối hoặc sử dụng cho mục đích
+thương mại khi chưa có sự cho phép của chủ sở hữu.
+</p>
+
+<p>
+Nếu bạn cho rằng nội dung trên trang này vi phạm
+quyền sở hữu trí tuệ của bạn, vui lòng liên hệ
+qua địa chỉ email được cung cấp bên dưới.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- EMAIL -->
+
+<section
+id="emails"
+class="email-section"
+>
+
+<div class="email-box">
+
+<h2>
+Danh sách email liên hệ
+</h2>
+
+<p class="email-description">
+Nhấn nút "Sao chép" bên cạnh email để sao chép
+địa chỉ vào clipboard.
+</p>
+
+<div
+id="emailList"
+class="email-list"
+>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
+<div>
+<strong>
+Copyright Gallery
+</strong>
+</div>
 
-© 2026 Copyright Gallery · All rights reserved
+<div>
+© 2026 All Rights Reserved.
+</div>
 
+<div>
+Hình ảnh được bảo vệ bởi bản quyền.
+</div>
 
 </footer>
 
 
-
-
-
-
 <script>
 
+/* ================================
+   DANH SÁCH EMAIL
+================================ */
 
-// Chặn chuột phải
+const emails = [
+
+"KristianEspudo52473@hotmail.com",
+"AntoinetteBongiorno5092@hotmail.com",
+"ShainaSoliven7384@hotmail.com",
+"KareemKlager2942@hotmail.com",
+"AssuntaIarrobino825469@hotmail.com",
+"KippQuintero80329@hotmail.com",
+"AlyviaTymes79392@hotmail.com",
+"ArtisBurgreen18242@hotmail.com",
+"LaylaBrownfield1412@hotmail.com",
+"CristopherTelesford23759@hotmail.com",
+"CathrynYokota13951@hotmail.com",
+"VerlonKasperbauer70029@hotmail.com",
+"LyndseyPilkinton2418@hotmail.com",
+"ElzadaFriedley588518@hotmail.com",
+"BevWilling165075@hotmail.com",
+"OthelAnguish6837@hotmail.com",
+"ColbyLosito620751@hotmail.com",
+"VeliaGaouette079047@hotmail.com",
+"ClariceStinger25904@hotmail.com",
+"GustAweau09918@hotmail.com",
+"AnjaliLaude416363@hotmail.com",
+"TashaStrothers0253@hotmail.com",
+"ElminaBovio4208@hotmail.com",
+"RamonFazzari7983@hotmail.com",
+"FondaMonsen9695@hotmail.com",
+"CarlottaSzwec53894@hotmail.com",
+"KerwinKrynski7423@hotmail.com",
+"KatrinaFalat15608@hotmail.com",
+"LinusPelen82833@hotmail.com",
+"AlfonsoLarregui5964@hotmail.com",
+"KadynSerratelli40904@hotmail.com",
+"MeghanRusso8560@hotmail.com",
+"MarshaRopelewski210774@hotmail.com",
+"ShawneeSheafer552606@hotmail.com",
+"StephaniaMandal7659@hotmail.com",
+"MerylArisman939937@hotmail.com",
+"KatinaKrodel6349@hotmail.com",
+"LaddieOberry320944@hotmail.com",
+"RandKinsland7965@hotmail.com",
+"WillaSoltys2924@hotmail.com",
+"JannetteZocchi45103@hotmail.com",
+"JoanneKappler027723@hotmail.com",
+"LoneyBursack49808@hotmail.com",
+"BushKropff09511@hotmail.com",
+"WiliamToland4801@hotmail.com",
+"LelandEllert019879@hotmail.com",
+"ZetaEvans20751@hotmail.com"
+
+];
+
+
+/* ================================
+   HIỂN THỊ EMAIL
+================================ */
+
+const emailList =
+document.getElementById("emailList");
+
+
+emails.forEach(function(email){
+
+    const item =
+    document.createElement("div");
+
+    item.className =
+    "email-item";
+
+
+    const address =
+    document.createElement("span");
+
+    address.className =
+    "email-address";
+
+    address.textContent =
+    email;
+
+
+    const button =
+    document.createElement("button");
+
+    button.className =
+    "copy-button";
+
+    button.textContent =
+    "Sao chép";
+
+
+    button.addEventListener(
+        "click",
+        async function(){
+
+            try{
+
+                await navigator.clipboard.writeText(email);
+
+                button.textContent =
+                "Đã sao chép";
+
+                button.classList.add(
+                    "copied"
+                );
+
+                setTimeout(function(){
+
+                    button.textContent =
+                    "Sao chép";
+
+                    button.classList.remove(
+                        "copied"
+                    );
+
+                },1500);
+
+            }catch(error){
+
+                const textArea =
+                document.createElement("textarea");
+
+                textArea.value =
+                email;
+
+                document.body.appendChild(
+                    textArea
+                );
+
+                textArea.select();
+
+                document.execCommand(
+                    "copy"
+                );
+
+                textArea.remove();
+
+                button.textContent =
+                "Đã sao chép";
+
+                setTimeout(function(){
+
+                    button.textContent =
+                    "Sao chép";
+
+                },1500);
+
+            }
+
+        }
+    );
+
+
+    item.appendChild(
+        address
+    );
+
+    item.appendChild(
+        button
+    );
+
+    emailList.appendChild(
+        item
+    );
+
+});
+
+
+/* ================================
+   CHẶN CHUỘT PHẢI
+================================ */
 
 document.addEventListener(
+    "contextmenu",
+    function(event){
 
-"contextmenu",
+        if(
+            event.target.tagName === "IMG"
+        ){
 
-function(e){
+            event.preventDefault();
 
-e.preventDefault();
+        }
 
-}
-
+    }
 );
 
 
-
-
-// Chặn kéo ảnh
-
-document.addEventListener(
-
-"dragstart",
-
-function(e){
-
-e.preventDefault();
-
-}
-
-);
-
-
-
-
-// Không cho chọn ảnh
+/* ================================
+   CHẶN KÉO ẢNH
+================================ */
 
 document.addEventListener(
+    "dragstart",
+    function(event){
 
-"selectstart",
+        if(
+            event.target.tagName === "IMG"
+        ){
 
-function(e){
+            event.preventDefault();
 
-if(e.target.tagName==="IMG"){
+        }
 
-e.preventDefault();
-
-}
-
-}
-
+    }
 );
-
-
 
 </script>
 
-
-
 </body>
-
 </html>
