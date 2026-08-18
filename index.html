@@ -1,58 +1,77 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Copyright Gallery — All Rights Reserved</title>
 
 <meta name="description"
-content="Bộ sưu tập hình ảnh có thông báo bản quyền. All Rights Reserved.">
+      content="A collection of copyright-protected images. All Rights Reserved.">
+
 
 <style>
 
-/* =========================
-   CẤU HÌNH CHUNG
-========================= */
+/* =========================================
+   GLOBAL
+========================================= */
 
 :root{
+
     --bg:#080a0d;
+
     --panel:#14171c;
+
     --text:#ffffff;
+
     --muted:#aeb4bd;
+
     --line:#303640;
+
 }
 
 *{
+
     box-sizing:border-box;
+
 }
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 body{
+
     margin:0;
+
     padding:0;
 
     background:var(--bg);
+
     color:var(--text);
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
+
 }
 
 
-/* =========================
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
 header{
 
     position:sticky;
+
     top:0;
 
     z-index:1000;
@@ -62,6 +81,7 @@ header{
     border-bottom:1px solid var(--line);
 
     padding:18px 25px;
+
 }
 
 .header-inner{
@@ -77,6 +97,7 @@ header{
     align-items:center;
 
     gap:20px;
+
 }
 
 .logo{
@@ -98,9 +119,9 @@ header{
 }
 
 
-/* =========================
-   PHẦN GIỚI THIỆU
-========================= */
+/* =========================================
+   INTRODUCTION
+========================================= */
 
 .intro{
 
@@ -135,9 +156,9 @@ header{
 }
 
 
-/* =========================
+/* =========================================
    GALLERY
-========================= */
+========================================= */
 
 .gallery{
 
@@ -152,7 +173,7 @@ header{
 }
 
 
-/* MỖI ẢNH MỘT DÒNG */
+/* ONE IMAGE PER ROW */
 
 .image-card{
 
@@ -176,9 +197,9 @@ header{
 }
 
 
-/* =========================
-   KHUNG ẢNH
-========================= */
+/* =========================================
+   IMAGE
+========================================= */
 
 .image-container{
 
@@ -193,7 +214,7 @@ header{
 }
 
 
-/* ẢNH HIỂN THỊ TO */
+/* LARGE FULL-WIDTH IMAGE */
 
 .image-container img{
 
@@ -216,9 +237,9 @@ header{
 }
 
 
-/* =========================
-   THÔNG TIN ẢNH
-========================= */
+/* =========================================
+   IMAGE INFORMATION
+========================================= */
 
 .image-info{
 
@@ -255,9 +276,9 @@ header{
 }
 
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer{
 
@@ -280,9 +301,9 @@ footer strong{
 }
 
 
-/* =========================
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media(max-width:700px){
 
@@ -353,9 +374,9 @@ footer strong{
 }
 
 
-/* =========================
-   MÀN HÌNH RẤT LỚN
-========================= */
+/* =========================================
+   LARGE SCREENS
+========================================= */
 
 @media(min-width:1800px){
 
@@ -377,20 +398,25 @@ footer strong{
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      HEADER
-========================= -->
+========================================= -->
 
 <header>
 
     <div class="header-inner">
 
         <div class="logo">
+
             © Copyright Gallery
+
         </div>
 
+
         <div class="rights">
+
             ALL RIGHTS RESERVED
+
         </div>
 
     </div>
@@ -398,39 +424,50 @@ footer strong{
 </header>
 
 
-<!-- =========================
-     GIỚI THIỆU
-========================= -->
+
+<!-- =========================================
+     INTRODUCTION
+========================================= -->
 
 <section class="intro">
 
     <h1>
+
         Copyright Gallery
+
     </h1>
 
-    <p>
-        Bộ sưu tập hình ảnh được bảo vệ bản quyền.
-    </p>
 
     <p>
-        Tất cả hình ảnh trên trang này thuộc quyền của chủ sở hữu.
-        Không được sao chép, tải xuống, chỉnh sửa, phân phối hoặc sử dụng
-        cho mục đích thương mại khi chưa được cho phép.
+
+        A collection of copyright-protected images.
+
+    </p>
+
+
+    <p>
+
+        All images on this website are the property
+        of their respective owner. Copying, downloading,
+        modifying, distributing, or using these images
+        for commercial purposes is prohibited without permission.
+
     </p>
 
 </section>
 
 
-<!-- =========================
-     GALLERY
-========================= -->
+
+<!-- =========================================
+     IMAGE GALLERY
+========================================= -->
 
 <main class="gallery">
 
 
-    <!-- =====================
-         ẢNH 1
-    ====================== -->
+    <!-- =====================================
+         IMAGE 1
+    ====================================== -->
 
     <article class="image-card">
 
@@ -444,14 +481,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 01
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -459,9 +502,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 2
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 2
+    ====================================== -->
 
     <article class="image-card">
 
@@ -475,14 +519,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 02
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -490,9 +540,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 3
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 3
+    ====================================== -->
 
     <article class="image-card">
 
@@ -506,14 +557,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 03
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -521,9 +578,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 4
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 4
+    ====================================== -->
 
     <article class="image-card">
 
@@ -537,14 +595,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 04
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -552,9 +616,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 5
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 5
+    ====================================== -->
 
     <article class="image-card">
 
@@ -568,14 +633,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 05
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -583,9 +654,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 6
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 6
+    ====================================== -->
 
     <article class="image-card">
 
@@ -599,14 +671,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 06
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -614,9 +692,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 7
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 7
+    ====================================== -->
 
     <article class="image-card">
 
@@ -630,14 +709,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 07
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -645,9 +730,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 8
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 8
+    ====================================== -->
 
     <article class="image-card">
 
@@ -661,14 +747,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 08
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -676,9 +768,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 9
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 9
+    ====================================== -->
 
     <article class="image-card">
 
@@ -692,14 +785,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 09
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -707,9 +806,10 @@ footer strong{
     </article>
 
 
-    <!-- =====================
-         ẢNH 10
-    ====================== -->
+
+    <!-- =====================================
+         IMAGE 10
+    ====================================== -->
 
     <article class="image-card">
 
@@ -723,14 +823,20 @@ footer strong{
 
         </div>
 
+
         <div class="image-info">
 
             <div class="image-title">
+
                 Image 10
+
             </div>
 
+
             <div class="image-copy">
+
                 © ALL RIGHTS RESERVED
+
             </div>
 
         </div>
@@ -741,14 +847,17 @@ footer strong{
 </main>
 
 
-<!-- =========================
+
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
     <strong>
+
         Copyright Gallery
+
     </strong>
 
     <br>
@@ -757,19 +866,25 @@ footer strong{
 
     <br>
 
-    Hình ảnh được đăng tải nhằm xác lập và công khai quyền sở hữu.
-    Không được sao chép hoặc sử dụng lại khi chưa được phép.
+    These images are published to establish
+    and publicly document ownership.
+
+    <br>
+
+    Copying, reproducing, modifying, distributing,
+    or reusing these images without permission is prohibited.
 
 </footer>
 
 
-<!-- =========================
+
+<!-- =========================================
      JAVASCRIPT
-========================= -->
+========================================= -->
 
 <script>
 
-/* CHẶN CHUỘT PHẢI */
+/* Disable right-click */
 
 document.addEventListener(
     "contextmenu",
@@ -781,7 +896,7 @@ document.addEventListener(
 );
 
 
-/* CHẶN KÉO ẢNH */
+/* Disable dragging images */
 
 document.addEventListener(
     "dragstart",
@@ -797,7 +912,7 @@ document.addEventListener(
 );
 
 
-/* CHẶN MỘT SỐ PHÍM */
+/* Disable some keyboard shortcuts */
 
 document.addEventListener(
     "keydown",
@@ -824,4 +939,5 @@ document.addEventListener(
 
 
 </body>
+
 </html>
